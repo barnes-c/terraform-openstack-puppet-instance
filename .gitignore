@@ -1,0 +1,8 @@
+.terraform*
+tmp.userdata
+terraform.plan
+terraform-provider-*
+.vscode/
+*.backup
+*.swp
+*.swo
