@@ -1,16 +1,3 @@
-terraform {
-  required_providers {
-    openstack = {
-      source  = "terraform-provider-openstack/openstack"
-      version = "3.0.0"
-    }
-  }
-}
-
-provider "openstack" {
-
-}
-
 data "openstack_images_image_v2" "image" {
   most_recent = true
 

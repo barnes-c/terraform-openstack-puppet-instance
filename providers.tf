@@ -1,17 +1,11 @@
-terraform {
-  required_providers {
-    openstack = {
-      source  = "terraform-provider-openstack/openstack"
-      version = ">= 1.0.0"
-    }
-    http = {
-      source  = "hashicorp/http"
-      version = ">= 2.0.0"
-    }
-  }
-  required_version = ">= 1.0"
-}
-
 provider "openstack" {}
 
 provider "http" {}
+
+provider "foreman" {
+  # 8443 is the port using Kerberos auth
+  server_hostname = "judy.cern.ch:8443"
+
+  # Use the right auth workflow
+  client_auth_negotiate = true
+}

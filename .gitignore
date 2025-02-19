@@ -6,3 +6,5 @@ terraform-provider-*
 *.backup
 *.swp
 *.swo
+registry.terraform.io/
+terraform.tfstate
