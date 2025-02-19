@@ -1,4 +1,4 @@
-resource "null_resource" "example" {
+resource "null_resource" "foreman_configuration" {
   provisioner "local-exec" {
     command = "echo $FOREMAN_CONFIG_FILE"
     environment = {
