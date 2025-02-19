@@ -63,35 +63,35 @@ variable "image_ref" {
   default     = ""
 }
 
-variable "openstack_auth_url" {
-  description = "Openstack authentication URL"
-  type        = string
-  default     = ""
-}
+# variable "openstack_auth_url" {
+#   description = "Openstack authentication URL"
+#   type        = string
+#   default     = ""
+# }
 
-variable "openstack_user_name" {
-  description = "Openstack username"
-  type        = string
-  default     = ""
-}
+# variable "openstack_user_name" {
+#   description = "Openstack username"
+#   type        = string
+#   default     = ""
+# }
 
-variable "openstack_password" {
-  description = "Openstack password"
-  type        = string
-  default     = ""
-}
+# variable "openstack_password" {
+#   description = "Openstack password"
+#   type        = string
+#   default     = ""
+# }
 
-variable "openstack_region" {
-  description = "Openstack region zone"
-  type        = string
-  default     = ""
-}
+# variable "openstack_region" {
+#   description = "Openstack region zone"
+#   type        = string
+#   default     = ""
+# }
 
-variable "openstack_tenant_name" {
-  description = "Openstack tenant name"
-  type        = string
-  default     = ""
-}
+# variable "openstack_tenant_name" {
+#   description = "Openstack tenant name"
+#   type        = string
+#   default     = ""
+# }
 
 variable "foreman_environment" {
   default = "production"

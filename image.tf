@@ -1,13 +1,19 @@
-data "openstack_images_image_v2" "name" {
-  name = var.image_name
+data "openstack_images_image_v2" "image" {
+  most_recent = true
+
+  properties = {
+    os_distro       = var.distro
+    os_distro_major = var.os_major_version
+    architecture    = var.arch
+  }
 }
 
 output "image_details" {
   description = "Details of the retrieved image"
-  value       = data.openstack_images_image_v2.name
+  value       = data.openstack_images_image_v2.image
 }
 
-# output "image_id_details" {
-#   description = "Details of the retrieved image by ID"
-#   value       = data.openstack_images_image_v2.id
-# }
+output "image_id_details" {
+  description = "Details of the retrieved image by ID"
+  value       = data.openstack_images_image_v2.image.id
+}

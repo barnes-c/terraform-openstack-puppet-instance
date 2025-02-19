@@ -41,5 +41,3 @@
 #   description = "Indicates if the host has been staged in Certmgr"
 #   value       = "Staging request sent for ${var.certmgr_fqdn}"  
 # }
-
-# # how to link with vm

@@ -1,13 +1,3 @@
-data "openstack_images_image_v2" "image" {
-  most_recent = true
-
-  properties = {
-    os_distro       = var.distro
-    os_distro_major = var.os_major_version
-    architecture    = var.arch
-  }
-}
-
 resource "openstack_compute_instance_v2" "instance" {
   name      = var.instance_name
   image_id  = data.openstack_images_image_v2.image.id
