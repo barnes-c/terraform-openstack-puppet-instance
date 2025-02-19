@@ -107,3 +107,9 @@ variable "image_id" {
   type        = string
   default     = ""
 }
+
+variable "hostgroup" {
+  description = "The hostgroup which the instance should be in"
+  type        = string
+  default     = "playground"
+}
