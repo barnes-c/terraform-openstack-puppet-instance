@@ -10,6 +10,12 @@ variable "os_major_version" {
   default     = "9"
 }
 
+variable "os_minor_version" {
+  description = "Minor version of the OS"
+  type        = string
+  default     = "5"
+}
+
 variable "os_edition" {
   description = "The name of the edition"
   type        = string
@@ -31,9 +37,7 @@ variable "flavor" {
 variable "instance_name" {
   description = "The name of the OpenStack instance"
   type        = string
-  default     = "test-instance"
 }
-
 
 variable "volume_name" {
   description = "The name of the volume"
@@ -63,40 +67,6 @@ variable "image_ref" {
   default     = ""
 }
 
-# variable "openstack_auth_url" {
-#   description = "Openstack authentication URL"
-#   type        = string
-#   default     = ""
-# }
-
-# variable "openstack_user_name" {
-#   description = "Openstack username"
-#   type        = string
-#   default     = ""
-# }
-
-# variable "openstack_password" {
-#   description = "Openstack password"
-#   type        = string
-#   default     = ""
-# }
-
-# variable "openstack_region" {
-#   description = "Openstack region zone"
-#   type        = string
-#   default     = ""
-# }
-
-# variable "openstack_tenant_name" {
-#   description = "Openstack tenant name"
-#   type        = string
-#   default     = ""
-# }
-
-variable "foreman_environment" {
-  default = "production"
-}
-
 variable "image_name" {
   description = "The name of the image to retrieve"
   type        = string
@@ -109,7 +79,47 @@ variable "image_id" {
 }
 
 variable "hostgroup" {
-  description = "The hostgroup which the instance should be in"
+  description = "The title of the hostgroup which the instance should be in"
   type        = string
   default     = "playground"
 }
+
+variable "key_pair_name" {
+  description = "Name of the key pair"
+  type        = string
+}
+
+# variable "certmgr_host" {
+#   description = "Certificate Manager service hostname"
+#   type        = string
+# }
+
+# variable "certmgr_fqdn" {
+#   description = "Fully Qualified Domain Name of the host to be staged"
+#   type        = string
+# }
+
+variable "certmgr_port" {
+  description = "Certificate Manager service port"
+  type        = number
+  default     = 443
+}
+
+variable "certmgr_timeout" {
+  description = "Timeout for Certmgr requests"
+  type        = number
+  default     = 30
+}
+
+variable "certmgr_deref_alias" {
+  description = "Whether to dereference DNS aliases"
+  type        = bool
+  default     = false
+}
+
+variable "foreman_environment" {
+  description = "The Foreman environment"
+  type        = string
+  default     = "qa"
+}
+
