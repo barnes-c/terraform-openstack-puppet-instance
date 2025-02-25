@@ -7,13 +7,3 @@ data "openstack_images_image_v2" "image" {
     architecture    = var.arch
   }
 }
-
-output "image_details" {
-  description = "Details of the retrieved image"
-  value       = data.openstack_images_image_v2.image
-}
-
-output "image_id_details" {
-  description = "Details of the retrieved image by ID"
-  value       = data.openstack_images_image_v2.image.id
-}
