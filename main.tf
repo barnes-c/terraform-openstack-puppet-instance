@@ -5,6 +5,6 @@ resource "openstack_compute_instance_v2" "instance" {
   key_pair  = resource.openstack_compute_keypair_v2.kp.name
 
   metadata = {
-    this = "that"
+    cern-waitdns = false
   }
 }
