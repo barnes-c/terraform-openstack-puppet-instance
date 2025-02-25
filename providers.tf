@@ -8,4 +8,7 @@ provider "foreman" {
 
   # Use the right auth workflow
   client_auth_negotiate = true
+
+  location_id     = 1
+  organization_id = 2
 }
