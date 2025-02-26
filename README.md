@@ -17,7 +17,7 @@ source openrc.sh
 Export the correct Kerberos configuration file:
 
 ```bash
-export KRB5_CONFIG=/krb5.conf
+export KRB5_CONFIG=./krb5.conf
 ```
 
 ### 3. Authenticate with Kerberos
