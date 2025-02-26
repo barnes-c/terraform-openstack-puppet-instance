@@ -12,6 +12,10 @@ terraform {
       source  = "terraform-coop/foreman"
       version = "0.7.0"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = ">= 2.0.0"
+    }
   }
   required_version = ">= 1.0"
 }
