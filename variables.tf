@@ -89,20 +89,22 @@ variable "key_pair_name" {
   type        = string
 }
 
-# variable "certmgr_host" {
-#   description = "Certificate Manager service hostname"
-#   type        = string
-# }
+variable "certmgr_host" {
+  description = "Certificate Manager service hostname"
+  type        = string
+  default     = "hector.cern.ch"
+}
 
-# variable "certmgr_fqdn" {
-#   description = "Fully Qualified Domain Name of the host to be staged"
-#   type        = string
-# }
+variable "certmgr_fqdn" {
+  description = "Fully Qualified Domain Name of the host to be staged"
+  type        = string
+  default     = "hector.cern.ch"
+}
 
 variable "certmgr_port" {
   description = "Certificate Manager service port"
   type        = number
-  default     = 443
+  default     = 8008
 }
 
 variable "certmgr_timeout" {
@@ -123,3 +125,8 @@ variable "foreman_environment" {
   default     = "qa"
 }
 
+variable "foreman_domain" {
+  description = "The domain name in which the instance should be created (e.g. cern.ch, dyndns.cern.ch)"
+  type        = string
+  default     = "cern.ch"
+}
