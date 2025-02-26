@@ -4,6 +4,6 @@ data "openstack_images_image_v2" "image" {
   properties = {
     os_distro       = var.distro
     os_distro_major = var.os_major_version
-    architecture    = var.arch
+    architecture    = var.architecture
   }
 }

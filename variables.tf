@@ -22,7 +22,7 @@ variable "os_edition" {
   default     = "Base"
 }
 
-variable "arch" {
+variable "architecture" {
   description = "The name of the architecture (e.g. x86_64)"
   type        = string
   default     = "x86_64"
@@ -78,8 +78,8 @@ variable "image_id" {
   default     = ""
 }
 
-variable "hostgroup" {
-  description = "The title of the hostgroup which the instance should be in"
+variable "foreman_hostgroup" {
+  description = "The title of the foreman hostgroup which the instance should be in"
   type        = string
   default     = "playground"
 }
@@ -129,4 +129,16 @@ variable "foreman_domain" {
   description = "The domain name in which the instance should be created (e.g. cern.ch, dyndns.cern.ch)"
   type        = string
   default     = "cern.ch"
+}
+
+variable "foreman_media_name" {
+  description = "The name of the foreman medium"
+  type        = string
+  default     = "RedHatCERN"
+}
+
+variable "foreman_model_name" {
+  description = "The name of the foreman model"
+  type        = string
+  default     = "OpenStack Compute"
 }
