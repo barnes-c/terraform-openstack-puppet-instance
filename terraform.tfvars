@@ -1,17 +1,10 @@
+architecture     = "x86_64"
 distro           = "RHEL"
-os_major_version = "9"
+instance_flavor  = "m2.small"
+instance_name    = "terraform-test2"
+key_pair_name    = "mac"
 os_edition       = "Base"
-arch             = "x86_64"
-flavor           = "m2.small"
-instance_name    = "test-instance-terraform"
-
-
-volume_name = "volume"
-volume_size = 10
-image_name  = "test-image"
-
-
-key_pair_name = "test-keypair"
-
-# certmgr_host=
-# certmgr_fqdn=
+os_major_version = "9"
+os_minor_version = "5"
+volume_name      = "volume"
+volume_size      = 10
