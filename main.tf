@@ -1,4 +1,4 @@
-module "create-openstack-instance" {
+module "terraform-openstack-instance" {
   source = "./module"
 
   instance_name   = "test2-terraform-123"

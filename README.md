@@ -1,4 +1,4 @@
-# IAC-CERN
+# terraform-openstack-instance
 
 ## Environment Setup
 
