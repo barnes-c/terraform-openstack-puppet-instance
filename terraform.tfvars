@@ -1,7 +1,7 @@
 architecture     = "x86_64"
 distro           = "RHEL"
 instance_flavor  = "m2.small"
-instance_name    = "terraform-test2"
+instance_name    = "terraform-test"
 key_pair_name    = "mac"
 os_edition       = "Base"
 os_major_version = "9"
