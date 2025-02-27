@@ -9,3 +9,7 @@ resource "openstack_compute_instance_v2" "instance" {
   #   cern-waitdns = false
   # }
 }
+
+data "openstack_networking_port_v2" "instance_port" {
+  device_id = openstack_compute_instance_v2.instance.id
+}
