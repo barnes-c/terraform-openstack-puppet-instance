@@ -48,5 +48,5 @@ data "foreman_operatingsystem" "os" {
 }
 
 data "foreman_partitiontable" "ptable" {
-  name = "AFS Server"
+  name = var.ptable_name
 }

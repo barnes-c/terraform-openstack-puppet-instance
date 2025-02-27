@@ -91,11 +91,13 @@ variable "instance_flavor" {
 variable "instance_name" {
   description = "The name of the OpenStack instance"
   type        = string
+  default     = ""
 }
 
 variable "key_pair_name" {
   description = "Name of the key pair"
   type        = string
+  default     = ""
 }
 
 variable "location_id" {
@@ -134,6 +136,12 @@ variable "os_minor_version" {
   default     = "5"
 }
 
+variable "ptable_name" {
+  description = "The name of the partition table"
+  type        = string
+  default     = "AFS Server"
+}
+
 variable "puppet_master_host" {
   description = "Puppet master hostname"
   type        = string
@@ -149,11 +157,13 @@ variable "volume_availability_zone" {
 variable "volume_name" {
   description = "The name of the volume"
   type        = string
+  default     = "volume"
 }
 
 variable "volume_size" {
   description = "Size of the volume in GB"
   type        = number
+  default     = 10
 }
 
 variable "volume_type" {

@@ -1,7 +1,3 @@
-provider "openstack" {}
-
-provider "http" {}
-
 provider "foreman" {
   client_auth_negotiate = true
   location_id           = var.location_id
