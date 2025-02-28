@@ -85,7 +85,7 @@ variable "image_ref" {
 variable "instance_flavor" {
   description = "The name of the OpenStack flavor"
   type        = string
-  default     = "m1.small"
+  default     = "m2.small"
 }
 
 variable "instance_name" {
