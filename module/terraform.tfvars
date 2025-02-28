@@ -1,9 +1,0 @@
-distro           = "RHEL"
-instance_flavor  = "m2.small"
-instance_name    = "terraform-test"
-key_pair_name    = "mac"
-os_edition       = "Base"
-os_major_version = "9"
-os_minor_version = "5"
-volume_name      = "volume"
-volume_size      = 10

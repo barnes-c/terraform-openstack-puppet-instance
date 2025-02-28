@@ -5,9 +5,12 @@ resource "openstack_compute_instance_v2" "instance" {
   name      = var.instance_name
   user_data = local.puppet_init_script
 
-  # metadata = {
-  #   cern-waitdns = false
-  # }
+  metadata = {
+    tenant-id   = data.openstack_identity_auth_scope_v3.scope.project_id
+    tenant-name = data.openstack_identity_auth_scope_v3.scope.project_name
+
+    cern-waitdns = false
+  }
 }
 
 data "openstack_networking_port_v2" "instance_port" {

@@ -91,7 +91,6 @@ variable "instance_name" {
 variable "key_pair_name" {
   description = "Name of the key pair"
   type        = string
-  default     = ""
 }
 
 variable "location_id" {
@@ -118,12 +117,6 @@ variable "os_major_version" {
   default     = "9"
 }
 
-variable "os_edition" {
-  description = "The name of the edition"
-  type        = string
-  default     = "Base"
-}
-
 variable "os_minor_version" {
   description = "Minor version of the OS"
   type        = string
@@ -140,6 +133,12 @@ variable "puppet_master_host" {
   description = "Puppet master hostname"
   type        = string
   default     = "it-puppet-masters-public-a.cern.ch"
+}
+
+variable "region" {
+  description = "Region in which the instance should spawn"
+  type        = string
+  default     = "cern"
 }
 
 variable "volume_availability_zone" {
