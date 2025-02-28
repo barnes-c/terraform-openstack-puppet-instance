@@ -96,7 +96,6 @@ terraform apply
 Review the module's `variables.tf` file for a complete list of required and optional inputs. Required variables are:
 
 * instance_name: The name of the instance to create.
-* instance_flavor: The name of the OpenStack flavor (e.g. m2.small)
 * key_pair_name: Name of the key pair in OpenStack.
 
 The module also provides outputs (check outputs.tf) that might include:
