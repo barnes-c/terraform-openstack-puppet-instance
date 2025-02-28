@@ -79,7 +79,7 @@ module "create-openstack-instance" {
   # Required variables (adjust these as needed)
   instance_name = "terraform-openstack-instance1"
   key_pair_name = "mac"
-  # Include additional variables as required by the module
+  # Include additional variables
   # flavor, certmgr settings, foreman configurations, etc.
 }
 ```
