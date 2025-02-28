@@ -1,3 +1,9 @@
+variable "availability_zone" {
+  type        = string
+  description = "The availability zone for the instance"
+  default     = ""
+}
+
 variable "certmgr_deref_alias" {
   description = "Whether to dereference DNS aliases"
   type        = bool
