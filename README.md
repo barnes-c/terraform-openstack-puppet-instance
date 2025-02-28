@@ -77,8 +77,8 @@ module "create-openstack-instance" {
   source = "git::https://gitlab.com/your-group/terraform-openstack-instance.git?ref=v1.0.0"
 
   # Required variables (adjust these as needed)
-  instance_name              = "example-instance"
-  volume_availability_zone   = "nova"
+  instance_name = "terraform-openstack-instance1"
+  key_pair_name = "mac"
   # Include additional variables as required by the module
   # flavor, certmgr settings, foreman configurations, etc.
 }
