@@ -1,9 +1,3 @@
-variable "architecture" {
-  description = "The name of the architecture (e.g. x86_64)"
-  type        = string
-  default     = "x86_64"
-}
-
 variable "certmgr_deref_alias" {
   description = "Whether to dereference DNS aliases"
   type        = bool

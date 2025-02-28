@@ -20,7 +20,7 @@ resource "foreman_host" "host" {
 }
 
 data "foreman_architecture" "architecture" {
-  name = var.architecture
+  name = data.openstack_compute_flavor_v2.flavor.extra_specs["architecture"]
 }
 
 data "foreman_domain" "domain" {

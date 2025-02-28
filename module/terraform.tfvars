@@ -1,4 +1,3 @@
-architecture     = "x86_64"
 distro           = "RHEL"
 instance_flavor  = "m2.small"
 instance_name    = "terraform-test"
