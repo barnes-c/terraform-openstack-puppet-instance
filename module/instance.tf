@@ -5,14 +5,14 @@ resource "openstack_compute_instance_v2" "instance" {
   name      = var.instance_name
   user_data = local.puppet_init_script
 
-  metadata = {
-    tenant-id   = data.openstack_identity_auth_scope_v3.scope.project_id
-    tenant-name = data.openstack_identity_auth_scope_v3.scope.project_name
-
-    cern-waitdns = false
-  }
-}
-
-data "openstack_networking_port_v2" "instance_port" {
-  device_id = openstack_compute_instance_v2.instance.id
+  metadata = merge(
+    {
+      #Default is true. When false there is no waiting for DNS.
+      cern-waitdns = false  
+      tenant-id    = data.openstack_identity_auth_scope_v3.scope.project_id
+      tenant-name  = data.openstack_identity_auth_scope_v3.scope.project_name
+    },
+    var.landb_mainuser != "" ? { "landb-mainuser" = var.landb_mainuser } : {},
+    var.landb_responsible != "" ? { "landb-responsible" = var.landb_responsible } : {}
+  )
 }

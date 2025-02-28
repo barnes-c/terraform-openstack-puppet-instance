@@ -93,6 +93,18 @@ variable "key_pair_name" {
   type        = string
 }
 
+variable "landb_mainuser" {
+  description = "LanDB user of the instance"
+  type        = string
+  default     = ""
+}
+
+variable "landb_responsible" {
+  description = "LanDB responsible of the instance"
+  type        = string
+  default     = ""
+}
+
 variable "location_id" {
   description = "The foreman location ID"
   type        = number

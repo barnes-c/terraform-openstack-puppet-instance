@@ -1,4 +1,4 @@
 data "openstack_identity_auth_scope_v3" "scope" {
-  name = "default" 
+  name   = "default"
   region = var.region
 }
