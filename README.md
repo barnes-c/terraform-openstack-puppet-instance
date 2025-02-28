@@ -1,5 +1,8 @@
 # terraform-openstack-instance
 
+Repository to automate the provisioning of instances in the CERN OpenStack private cloud.
+
+
 ## Environment Setup
 
 Follow these steps to configure your environment before running Terraform:
@@ -60,3 +63,43 @@ Once the environment is correctly set up, you can apply the Terraform configurat
 terraform init
 terraform apply
 ```
+
+## Module Usage
+
+This Terraform module is designed to provision an OpenStack instance, attach a volume, fetch a certificate from certmgr, and register the host in Foreman. To use this module in your own Terraform project, follow these steps:
+
+### 1. Reference the Module in Your Configuration
+
+In your root Terraform configuration, create a module block pointing to this repository. For example:
+
+```hcl2
+module "create-openstack-instance" {
+  source = "git::https://gitlab.com/your-group/terraform-openstack-instance.git?ref=v1.0.0"
+
+  # Required variables (adjust these as needed)
+  instance_name              = "example-instance"
+  volume_availability_zone   = "nova"
+  # Include additional variables as required by the module
+  # flavor, certmgr settings, foreman configurations, etc.
+}
+```
+
+### 2. Initialize and Run Terraform
+After adding the module to your configuration, run the following commands:
+```bash
+terraform init    
+terraform plan    
+terraform apply  
+```
+
+### 3. Variables and Outputs
+Review the module's `variables.tf` file for a complete list of required and optional inputs. Required variables are:
+
+* instance_name: The name of the instance to create.
+* instance_flavor: The name of the OpenStack flavor (e.g. m2.small)
+* key_pair_name: Name of the key pair in OpenStack.
+
+The module also provides outputs (check outputs.tf) that might include:
+* instance_id: The ID of the created instance.
+* ip_address: The public IP address assigned to the instance.
+* (Other outputs based on your module configuration.)
