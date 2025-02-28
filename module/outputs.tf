@@ -5,5 +5,11 @@ output "instance_id" {
 
 output "ipv4_address" {
   description = "The IPv4 address of the instance"
-  value       = data.openstack_networking_port_v2.instance_port.fixed_ip
+  value       = data.openstack_networking_port_v2.instance_port.all_fixed_ips[0]
 }
+
+output "ipv6_address" {
+  description = "The IPv6 address of the instance"
+  value       = data.openstack_networking_port_v2.instance_port.all_fixed_ips[1]
+}
+ 
