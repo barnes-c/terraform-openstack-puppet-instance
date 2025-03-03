@@ -1,5 +1,6 @@
 module "terraform-openstack-instance" {
-  source = "../../module"
+  source = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.2"
+  
   count  = length(var.availability_zones)
 
   instance_name     = "terraform-openstack-instance-1${count.index}"
