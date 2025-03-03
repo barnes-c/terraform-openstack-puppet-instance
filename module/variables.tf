@@ -91,7 +91,7 @@ variable "instance_flavor" {
 variable "instance_name" {
   description = "The name of the OpenStack instance"
   type        = string
-  default     = ""
+  default     = "terraform-openstack-puppet-instance-1"
 }
 
 variable "key_pair_name" {
@@ -168,7 +168,7 @@ variable "volume_availability_zone" {
 variable "volume_name" {
   description = "The name of the volume"
   type        = string
-  default     = "volume"
+  default     = "terraform-openstack-puppet-volume-1"
 }
 
 variable "volume_size" {

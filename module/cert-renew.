@@ -1,6 +1,0 @@
-[Unit]
-Description=Renew TLS certificate
-
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/cert-renew-script.sh
