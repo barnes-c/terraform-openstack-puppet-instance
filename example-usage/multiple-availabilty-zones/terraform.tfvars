@@ -1,0 +1,1 @@
+availability_zones = ["cern-geneva-a","cern-geneva-b","cern-geneva-c"]
