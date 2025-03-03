@@ -1,4 +1,4 @@
-# terraform-openstack-instance
+# terraform-openstack-puppet-instance
 
 Repository to automate the provisioning of instances in the CERN OpenStack private cloud.
 
@@ -76,8 +76,6 @@ In your root Terraform configuration, create a module block pointing to this rep
 module "create-openstack-instance" {
   source = "git::https://gitlab.com/your-group/terraform-openstack-instance.git?ref=v1.0.0"
 
-  # Required variables (adjust these as needed)
-  instance_name = "terraform-openstack-instance1"
   key_pair_name = "YOUR-KEY-NAME"
   # Include additional variables
   # flavor, certmgr settings, foreman configurations, etc.
