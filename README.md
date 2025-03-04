@@ -1,7 +1,6 @@
 # terraform-openstack-puppet-instance
 
-Repository to automate the provisioning of instances in the CERN OpenStack private cloud.
-
+Repository to automate the provisioning of puppet managed instances in the CERN OpenStack private cloud.
 
 ## Environment Setup
 
@@ -66,7 +65,7 @@ terraform apply
 
 ## Module Usage
 
-This Terraform module is designed to provision an OpenStack instance, attach a volume, fetch a certificate from certmgr, and register the host in Foreman. To use this module in your own Terraform project, follow these steps:
+This Terraform module is designed to provision a puppet managed OpenStack instance, attach a volume, fetch a certificate from certmgr, and register the host in Foreman. To use this module in your own Terraform project, follow these steps:
 
 ### 1. Reference the Module in Your Configuration
 
