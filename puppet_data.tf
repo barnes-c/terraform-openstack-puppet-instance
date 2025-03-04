@@ -1,5 +1,5 @@
 locals {
-  puppet_init_script = templatefile("${path.module}/puppetinit", {
+  puppet_init_script = templatefile("${path.module}/puppetinit.sh", {
     _CASERVER_HOSTNAME     = var.certmgr_fqdn
     _CASERVER_PORT         = var.certmgr_port
     _PUPPETMASTER_HOSTNAME = var.puppet_master_host
