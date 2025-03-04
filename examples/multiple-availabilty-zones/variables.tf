@@ -1,9 +1,9 @@
 variable "availability_zones" {
-  type    = list(string)
+  type = list(string)
 }
 
 variable "region" {
-  type    = string
+  type = string
 }
 
 variable "foreman_hostname" {
