@@ -12,7 +12,7 @@ terraform {
       source  = "hashicorp/local"
       version = ">= 2.1.0"
     }
-   openstack = {
+    openstack = {
       source  = "terraform-provider-openstack/openstack"
       version = "3.0.0"
     }
