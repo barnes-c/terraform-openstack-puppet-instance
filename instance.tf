@@ -5,6 +5,11 @@ resource "openstack_compute_instance_v2" "instance" {
   key_pair          = data.openstack_compute_keypair_v2.kp.name
   name              = var.instance_name
   user_data         = local.puppet_init_script
+  security_groups = [
+    data.openstack_networking_secgroup_v2.ssh.name,
+    data.openstack_networking_secgroup_v2.icmp.name,
+    data.openstack_networking_secgroup_v2.default.name,
+  ]
 
   metadata = merge(
     {
