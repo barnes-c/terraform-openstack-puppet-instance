@@ -174,7 +174,7 @@ variable "volume_name" {
 variable "volume_size" {
   description = "Size of the volume in GB"
   type        = number
-  default     = 10
+  default     = 0
 }
 
 variable "volume_type" {
