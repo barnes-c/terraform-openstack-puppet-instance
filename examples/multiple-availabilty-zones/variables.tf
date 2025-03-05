@@ -24,3 +24,9 @@ variable "organization_id" {
 variable "region" {
   type = string
 }
+
+variable "max_availability_zones" {
+  description = "Maximum number of availability zones to deploy instances into"
+  type        = number
+  default     = 5
+}
