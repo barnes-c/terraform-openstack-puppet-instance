@@ -1,11 +1,4 @@
-data "openstack_networking_secgroup_v2" "ssh" {
-  name = "ssh"
-}
-
-data "openstack_networking_secgroup_v2" "icmp" {
-  name = "icmp"
-}
-
-data "openstack_networking_secgroup_v2" "default" {
-  name = "default"
+data "openstack_networking_secgroup_v2" "secgroup" {
+  for_each = toset(var.security_groups)
+  name     = each.value
 }

@@ -6,15 +6,11 @@ resource "openstack_compute_instance_v2" "instance" {
   name              = var.instance_name
   user_data         = local.puppet_init_script
   security_groups = [
-    data.openstack_networking_secgroup_v2.ssh.name,
-    data.openstack_networking_secgroup_v2.icmp.name,
-    data.openstack_networking_secgroup_v2.default.name,
+    for sg in values(data.openstack_networking_secgroup_v2.secgroup) : sg.name
   ]
 
   metadata = merge(
     {
-      # Default is true. When false there is no waiting for DNS.
-      # cern-waitdns = false
       tenant-id   = data.openstack_identity_auth_scope_v3.scope.project_id
       tenant-name = data.openstack_identity_auth_scope_v3.scope.project_name
     },

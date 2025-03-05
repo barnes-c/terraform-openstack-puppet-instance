@@ -159,6 +159,12 @@ variable "region" {
   default     = "cern"
 }
 
+variable "security_groups" {
+  description = "List of security groups to be applied to the instance"
+  type    = list(string)
+  default = ["ssh", "icmp", "default"]
+}
+
 variable "volume_availability_zone" {
   description = "Availability zone for the volume"
   type        = string
