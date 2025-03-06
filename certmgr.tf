@@ -1,5 +1,6 @@
 resource "null_resource" "certmgr" {
   provisioner "local-exec" {
+    when    = create
     command = <<EOT
       curl -s --negotiate -u : \
         -X POST \
