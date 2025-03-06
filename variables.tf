@@ -159,10 +159,34 @@ variable "region" {
   default     = "cern"
 }
 
+variable "roger_host" {
+  description = "The host for the Roger service."
+  type        = string
+  default     = "woger-direct.cern.ch"
+}
+
+variable "roger_port" {
+  description = "The port for the Roger service."
+  type        = number
+  default     = 8201
+}
+
+variable "roger_appstate" {
+  description = "Optional appstate value."
+  type        = string
+  default     = "build"
+}
+
+variable "roger_message" {
+  description = "Optional message for state creation/updating."
+  type        = string
+  default     = ""
+}
+
 variable "security_groups" {
   description = "List of security groups to be applied to the instance"
-  type    = list(string)
-  default = ["ssh", "icmp", "default"]
+  type        = list(string)
+  default     = ["ssh", "icmp", "default"]
 }
 
 variable "volume_availability_zone" {
