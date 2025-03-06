@@ -15,7 +15,7 @@ locals {
 }
 
 module "terraform-openstack-instance" {
-  source = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.9"
+  source = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.10"
   count  = length(local.limited_availability_zones)
 
   key_pair_name     = var.key_pair_name
