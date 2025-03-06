@@ -25,4 +25,3 @@ resource "null_resource" "roger" {
     interpreter = ["/bin/bash", "-c"]
   }
 }
-# 
