@@ -4,15 +4,16 @@ resource "openstack_compute_instance_v2" "instance" {
   image_id          = data.openstack_images_image_v2.image.id
   key_pair          = data.openstack_compute_keypair_v2.kp.name
   name              = var.instance_name
-  user_data         = local.puppet_init_script
+  user_data         = data.template_cloudinit_config.config.rendered
   security_groups = [
     for sg in values(data.openstack_networking_secgroup_v2.secgroup) : sg.name
   ]
 
   metadata = merge(
     {
-      tenant-id    = data.openstack_identity_auth_scope_v3.scope.project_id
-      tenant-name  = data.openstack_identity_auth_scope_v3.scope.project_name
+      cern-waitdns=false
+      tenant-id   = data.openstack_identity_auth_scope_v3.scope.project_id
+      tenant-name = data.openstack_identity_auth_scope_v3.scope.project_name
     },
     var.landb_mainuser != "" ? { "landb-mainuser" = var.landb_mainuser } : {},
     var.landb_responsible != "" ? { "landb-responsible" = var.landb_responsible } : {}
