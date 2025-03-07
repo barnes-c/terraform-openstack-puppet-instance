@@ -1,5 +1,5 @@
 module "frontend-instances" {
-  source        = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.10"
+  source        = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.11"
   key_pair_name = var.key_pair_name
 
   count             = 1
@@ -8,7 +8,7 @@ module "frontend-instances" {
 }
 
 module "backend-instances" {
-  source        = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.10"
+  source        = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.11"
   key_pair_name = var.key_pair_name
 
   count             = 3
