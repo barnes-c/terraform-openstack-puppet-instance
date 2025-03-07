@@ -1,0 +1,5 @@
+.gitlab-ci.yml
+examples/
+krb5.conf
+README.md
+test/
