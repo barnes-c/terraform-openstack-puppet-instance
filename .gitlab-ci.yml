@@ -8,6 +8,7 @@ validate_terraform:
   stage: validate
   image: hashicorp/terraform:latest
   script:
+    - terraform init
     - terraform validate
   rules:
     - when: always
