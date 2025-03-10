@@ -1,19 +1,45 @@
 stages:
+  - validate
+  - build
+  - push
   - deploy
 
-upload:
+validate_terraform:
+  stage: validate
+  image: hashicorp/terraform:latest
+  script:
+    - terraform init
+    - terraform validate
+  rules:
+    - when: always
+
+docker_build:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $IMAGE_DESTINATION
+    - echo "Image pushed successfully to ${IMAGE_DESTINATION}"
+  variables:
+    IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+
+upload_to_gitlab:
   stage: deploy
   image: curlimages/curl:latest
   variables:
-    TERRAFORM_MODULE_DIR: ${CI_PROJECT_DIR}   
-    TERRAFORM_MODULE_NAME: ${CI_PROJECT_NAME} 
+    TERRAFORM_MODULE_DIR: ${CI_PROJECT_DIR}
+    TERRAFORM_MODULE_NAME: ${CI_PROJECT_NAME}
     TERRAFORM_MODULE_SYSTEM: openstack
     TERRAFORM_MODULE_VERSION: ${CI_COMMIT_TAG}
   script:
     - TERRAFORM_MODULE_NAME=$(echo "${TERRAFORM_MODULE_NAME}" | tr " _" -)
     - tar -vczf /tmp/${TERRAFORM_MODULE_NAME}-${TERRAFORM_MODULE_SYSTEM}-${TERRAFORM_MODULE_VERSION}.tgz -C ${TERRAFORM_MODULE_DIR} --exclude=./.git .
-    - 'curl --fail-with-body --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
-         --upload-file /tmp/${TERRAFORM_MODULE_NAME}-${TERRAFORM_MODULE_SYSTEM}-${TERRAFORM_MODULE_VERSION}.tgz
+    - 'curl --fail-with-body --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}" 
+         --upload-file /tmp/${TERRAFORM_MODULE_NAME}-${TERRAFORM_MODULE_SYSTEM}-${TERRAFORM_MODULE_VERSION}.tgz 
          ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/terraform/modules/${TERRAFORM_MODULE_NAME}/${TERRAFORM_MODULE_SYSTEM}/${TERRAFORM_MODULE_VERSION}/file'
   rules:
     - if: $CI_COMMIT_TAG
