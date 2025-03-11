@@ -4,7 +4,7 @@ module "frontend-instances" {
 
   count             = 1
   foreman_hostgroup = "playground/chbarnes"
-  instance_name     = "frontend-${replace(var.foreman_hostgroup, "/", "-")}-${count.index + 1}"
+  instance_name     = "${var.instance_name_prefix}-${replace(var.foreman_hostgroup, "/", "-")}-${count.index + 1}"
 }
 
 module "backend-instances" {
@@ -13,6 +13,6 @@ module "backend-instances" {
 
   count             = 3
   foreman_hostgroup = "playground"
-  instance_name     = "backend-${replace(var.foreman_hostgroup, "/", "-")}-${count.index + 1}"
+  instance_name     = "${var.instance_name_prefix}-${replace(var.foreman_hostgroup, "/", "-")}-${count.index + 1}"
 }
 
