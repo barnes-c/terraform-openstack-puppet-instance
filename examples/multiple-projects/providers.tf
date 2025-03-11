@@ -7,12 +7,10 @@ provider "foreman" {
 
 provider "openstack" {
   alias     = "first_project"
-  auth_url  = "https://keystone.cern.ch/v3"
   tenant_id = var.tenant_id_1
 }
 
 provider "openstack" {
   alias     = "second_project"
-  auth_url  = "https://keystone.cern.ch/v3"
   tenant_id = var.tenant_id_2
 }

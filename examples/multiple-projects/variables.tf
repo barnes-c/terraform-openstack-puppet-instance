@@ -4,11 +4,6 @@ variable "foreman_hostname" {
   default     = "judy.cern.ch"
 }
 
-variable "key_pair_name" {
-  description = "Name of the key pair"
-  type        = string
-}
-
 variable "location_id" {
   description = "The foreman location ID"
   type        = number
@@ -21,20 +16,11 @@ variable "organization_id" {
   default     = 2
 }
 
-variable "username" {
-  description = "The OpenStack username"
-  type        = string
-}
-
-variable "password" {
-  description = "The OpenStack password"
-  type        = string
-}
-
 variable "tenant_id_1" {
   description = "The OpenStack tenant ID"
   type        = string
 }
+
 variable "tenant_id_2" {
   description = "The OpenStack tenant ID"
   type        = string

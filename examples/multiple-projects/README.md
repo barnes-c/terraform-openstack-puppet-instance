@@ -1,17 +1,15 @@
 # multiple-projects
 
-To deploy instances in different projects at the same time you have to define two provider blocks for OpenStack. Example: 
+This example shows you how to deploy instances in different projects at the same time. For this you have to define two provider blocks for OpenStack. Example: 
 
 ```terraform
 provider "openstack" {
   alias     = "first_project"
-  auth_url  = "https://keystone.cern.ch/v3"
   tenant_id = var.tenant_id_1
 }
 
 provider "openstack" {
   alias     = "second_project"
-  auth_url  = "https://keystone.cern.ch/v3"
   tenant_id = var.tenant_id_2
 }
 ```
