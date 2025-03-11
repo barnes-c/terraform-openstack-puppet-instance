@@ -10,12 +10,6 @@ variable "certmgr_deref_alias" {
   default     = false
 }
 
-variable "certmgr_fqdn" {
-  description = "Fully Qualified Domain Name of the host to be staged"
-  type        = string
-  default     = "hector.cern.ch"
-}
-
 variable "certmgr_host" {
   description = "Certificate Manager service hostname"
   type        = string
