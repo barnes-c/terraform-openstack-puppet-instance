@@ -18,7 +18,6 @@ module "terraform-openstack-instance" {
   source = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.12"
   count  = length(local.limited_availability_zones)
 
-  key_pair_name     = var.key_pair_name
   availability_zone = local.limited_availability_zones[count.index]
   instance_name     = "terraform-openstack-puppet-instance-az-${count.index}"
   volume_name       = "terraform-openstack-puppet-instance-az-${count.index}"
