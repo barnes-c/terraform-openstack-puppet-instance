@@ -1,9 +1,9 @@
- output "user_data" {
+output "user_data" {
   description = "The user data thats being injected in the instance"
-  value       =  data.template_cloudinit_config.config.rendered
+  value       = data.template_cloudinit_config.config.rendered
 }
- 
- output "instance_id" {
+
+output "instance_id" {
   description = "The OpenStack instance ID"
   value       = openstack_compute_instance_v2.instance.id
 }

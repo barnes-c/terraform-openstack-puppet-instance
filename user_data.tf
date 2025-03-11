@@ -1,5 +1,5 @@
 data "template_file" "puppetinit" {
-  template = "${file("${path.module}/puppetinit")}"
+  template = file("${path.module}/puppetinit")
   vars = {
     _CASERVER_HOSTNAME     = var.certmgr_fqdn
     _CASERVER_PORT         = var.certmgr_port
@@ -12,7 +12,7 @@ data "template_file" "puppetinit" {
 }
 
 data "template_cloudinit_config" "config" {
-  gzip = false
+  gzip          = false
   base64_encode = false
 
   part {
@@ -22,7 +22,7 @@ data "template_cloudinit_config" "config" {
   }
 
   part {
-    content_type = "text/cloud-config" 
+    content_type = "text/cloud-config"
     content      = var.user_data
   }
 }
