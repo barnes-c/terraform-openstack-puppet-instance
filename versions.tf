@@ -16,6 +16,10 @@ terraform {
       source  = "hashicorp/template"
       version = "2.2.0"
     }
+    time = {
+      source = "hashicorp/time"
+      version = "0.13.0"
+    }
     openstack = {
       source  = "terraform-provider-openstack/openstack"
       version = "3.0.0"

@@ -17,8 +17,4 @@ resource "openstack_compute_instance_v2" "instance" {
     var.landb_mainuser != "" ? { "landb-mainuser" = var.landb_mainuser } : {},
     var.landb_responsible != "" ? { "landb-responsible" = var.landb_responsible } : {}
   )
-
-  lifecycle {
-    ignore_changes = [user_data]
-  }
 }
