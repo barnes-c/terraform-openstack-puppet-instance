@@ -4,7 +4,7 @@ module "example-instances1" {
   foreman_environment = var.foreman_environment
   foreman_hostgroup   = "playground/chbarnes"
 
-  count                = 1
+  count                = var.instance_count
   instance_flavor      = var.instance_flavor
   instance_name = "${var.instance_name_prefix}-${replace("playground/chbarnes", "/", "-")}-${count.index + 1}"
   instance_name_prefix = var.instance_name_prefix
@@ -30,7 +30,7 @@ module "example-instances2" {
   foreman_environment = var.foreman_environment
   foreman_hostgroup   = "playground"
 
-  count                = 2
+  count                = var.instance_count
   instance_flavor      = var.instance_flavor
   instance_name        = "${var.instance_name_prefix}-${replace(var.foreman_hostgroup, "/", "-")}-${count.index + 1}"
   instance_name_prefix = var.instance_name_prefix

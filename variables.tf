@@ -106,6 +106,12 @@ variable "instance_flavor" {
   default     = "m2.small"
 }
 
+variable "instance_count" {
+  description = "Number of instances to spawn"
+  type        = number
+  default     = 1
+}
+
 variable "instance_key_pair_name" {
   description = "Name of the key pair to be used for the instance"
   type        = string

@@ -10,12 +10,6 @@ variable "certmgr_deref_alias" {
   default     = false
 }
 
-variable "certmgr_fqdn" {
-  description = "Fully Qualified Domain Name of the host to be staged"
-  type        = string
-  default     = "hector.cern.ch"
-}
-
 variable "certmgr_host" {
   description = "Certificate Manager service hostname"
   type        = string
@@ -110,6 +104,12 @@ variable "instance_flavor" {
   description = "The name of the OpenStack flavor"
   type        = string
   default     = "m2.small"
+}
+
+variable "instance_count" {
+  description = "Number of instances to spawn"
+  type        = number
+  default     = 1
 }
 
 variable "instance_key_pair_name" {
