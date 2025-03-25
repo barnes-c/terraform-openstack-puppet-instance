@@ -137,9 +137,9 @@ variable "landb_responsible" {
 }
 
 variable "no_reboot" {
-  description = "no reboot (default 1)"
+  description = "no reboot (default 0)"
   type        = number
-  default     = 1
+  default     = 0
 }
 
 variable "ptable_name" {
