@@ -12,7 +12,7 @@ resource "foreman_host" "host" {
   ptable_id               = data.foreman_partitiontable.ptable.id
   interfaces_attributes {
     mac       = data.openstack_networking_port_v2.instance_port.mac_address
-    managed   = true
+    managed   = var.foreman_managed
     primary   = true
     provision = true
     type      = "interface"
