@@ -1,9 +1,9 @@
 stages:
   - validate
+  - docs
   - build
   - push
   - deploy
-  - docs
 
 validate_terraform:
   stage: validate
@@ -51,16 +51,17 @@ generate_terraform_docs:
     name: quay.io/terraform-docs/terraform-docs:latest
     entrypoint: [""]
   script:
-    - terraform-docs markdown table --show inputs --show outputs --output-file README.md --output-mode inject .
+    - apk add --no-cache git
+    - terraform-docs markdown table --show inputs --output-file README.md --output-mode inject .
     - |
-      if git diff --exit-code; then
+      if git diff --exit-code README.md; then
         echo "No changes to documentation"
       else
         git config --global user.email "ci@cern.ch"
         git config --global user.name "Terraform docs Bot"
         git add README.md
         git commit -m "Auto-update Terraform docs [skip ci]"
-        git push origin HEAD:$CI_COMMIT_REF_NAME
+        git push "https://oauth2:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
       fi
   rules:
-    - when: always
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
