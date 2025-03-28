@@ -3,6 +3,7 @@ stages:
   - build
   - push
   - deploy
+  - docs
 
 validate_terraform:
   stage: validate
@@ -38,8 +39,28 @@ upload_to_gitlab:
   script:
     - TERRAFORM_MODULE_NAME=$(echo "${TERRAFORM_MODULE_NAME}" | tr " _" -)
     - tar -vczf /tmp/${TERRAFORM_MODULE_NAME}-${TERRAFORM_MODULE_SYSTEM}-${TERRAFORM_MODULE_VERSION}.tgz -C ${TERRAFORM_MODULE_DIR} --exclude=./.git .
-    - 'curl --fail-with-body --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}" 
-         --upload-file /tmp/${TERRAFORM_MODULE_NAME}-${TERRAFORM_MODULE_SYSTEM}-${TERRAFORM_MODULE_VERSION}.tgz 
-         ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/terraform/modules/${TERRAFORM_MODULE_NAME}/${TERRAFORM_MODULE_SYSTEM}/${TERRAFORM_MODULE_VERSION}/file'
+    - 'curl --fail-with-body --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
+      --upload-file /tmp/${TERRAFORM_MODULE_NAME}-${TERRAFORM_MODULE_SYSTEM}-${TERRAFORM_MODULE_VERSION}.tgz
+      ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/terraform/modules/${TERRAFORM_MODULE_NAME}/${TERRAFORM_MODULE_SYSTEM}/${TERRAFORM_MODULE_VERSION}/file'
   rules:
     - if: $CI_COMMIT_TAG
+
+generate_terraform_docs:
+  stage: docs
+  image:
+    name: quay.io/terraform-docs/terraform-docs:latest
+    entrypoint: [""]
+  script:
+    - terraform-docs markdown table --show inputs --show outputs --output-file README.md --output-mode inject .
+    - |
+      if git diff --exit-code; then
+        echo "No changes to documentation"
+      else
+        git config --global user.email "ci@cern.ch"
+        git config --global user.name "Terraform docs Bot"
+        git add README.md
+        git commit -m "Auto-update Terraform docs [skip ci]"
+        git push origin HEAD:$CI_COMMIT_REF_NAME
+      fi
+  rules:
+    - when: always
