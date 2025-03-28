@@ -62,7 +62,7 @@ generate_terraform_docs:
         git remote set-url origin "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git"
         git add README.md
         git commit -m "Auto-update Terraform docs [skip ci]"
-        git push origin HEAD:main
+        git push origin HEAD:master
       fi
   rules:
     - when: always
