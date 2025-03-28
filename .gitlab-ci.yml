@@ -64,4 +64,4 @@ generate_terraform_docs:
         git push "https://oauth2:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
       fi
   rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - when: always
