@@ -59,10 +59,11 @@ generate_terraform_docs:
       else
         git config --global user.email "ci@cern.ch"
         git config --global user.name "Terraform docs Bot"
-        git remote set-url origin "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git"
+        git remote set-url origin "https://oauth2:${TEST_TOKEN}@gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git"
+        git checkout master
         git add README.md
         git commit -m "Auto-update Terraform docs [skip ci]"
-        git push origin HEAD:master
+        git push origin master
       fi
   rules:
     - when: always
