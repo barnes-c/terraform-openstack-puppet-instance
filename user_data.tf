@@ -7,7 +7,7 @@ data "template_file" "puppetinit" {
     _TOPLEVEL_HOSTGROUP    = var.foreman_hostgroup
     _FOREMAN_ENVIRONMENT   = var.foreman_environment
     _NO_REBOOT             = var.no_reboot
-    _GENERATED_TS          = time_static.ts.rfc3339
+    _GENERATED_TS          = time_static.timestamp.rfc3339
   }
 }
 
@@ -27,4 +27,4 @@ data "template_cloudinit_config" "config" {
   }
 }
 
-resource "time_static" "ts" {}
+resource "time_static" "timestamp" {}
