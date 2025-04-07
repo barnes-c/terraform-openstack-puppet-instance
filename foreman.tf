@@ -1,3 +1,11 @@
+locals {
+  is_physical = lookup(data.openstack_compute_flavor_v2.flavor.extra_specs, "cern:physical", "false") == "true"
+
+  mac_address = local.is_physical ? "00:00:00:00:00:00" : (
+    try(data.openstack_networking_port_v2.instance_port.mac_address, null)
+  )
+}
+
 resource "foreman_host" "host" {
   architecture_id         = data.foreman_architecture.architecture.id
   domain_id               = data.foreman_domain.domain.id
@@ -11,8 +19,8 @@ resource "foreman_host" "host" {
   operatingsystem_id      = data.foreman_operatingsystem.os.id
   ptable_id               = data.foreman_partitiontable.ptable.id
   interfaces_attributes {
-    mac       = data.openstack_networking_port_v2.instance_port.mac_address
-    managed   = var.foreman_managed
+    mac       = local.mac_address
+    managed   = local.is_physical
     primary   = true
     provision = true
     type      = "interface"

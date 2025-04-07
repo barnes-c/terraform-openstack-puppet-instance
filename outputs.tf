@@ -17,3 +17,8 @@ output "ipv6_address" {
   description = "The IPv6 address of the instance"
   value       = data.openstack_networking_port_v2.instance_port.all_fixed_ips[1]
 }
+
+output "is_physical" {
+  description = "Is the instance running on a physical machine?"
+  value       = local.is_physical
+}

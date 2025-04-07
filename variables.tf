@@ -58,12 +58,6 @@ variable "foreman_location_id" {
   default     = 1
 }
 
-variable "foreman_managed" {
-  description = "If the foreman host should be managed (default: true)"
-  type        = bool
-  default     = true
-}
-
 variable "foreman_media_name" {
   description = "The name of the foreman medium"
   type        = string
@@ -139,7 +133,7 @@ variable "instance_name_prefix" {
 variable "instance_waitdns" {
   description = "Wether the instance should wait for the dns to be propagated"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "landb_mainuser" {
