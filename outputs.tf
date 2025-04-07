@@ -1,6 +1,11 @@
-output "user_data" {
-  description = "The user data thats being injected in the instance"
-  value       = data.template_cloudinit_config.config.rendered
+output "flavor_id" {
+  description = "The OpenStack flavor ID"
+  value = data.openstack_compute_flavor_v2.flavor.id
+}
+
+output "image_id" {
+  description = "The OpenStack image ID"
+  value = data.openstack_images_image_v2.image.id
 }
 
 output "instance_id" {
@@ -21,4 +26,9 @@ output "ipv6_address" {
 output "is_physical" {
   description = "Is the instance running on a physical machine?"
   value       = local.is_physical
+}
+
+output "user_data" {
+  description = "Default puppet init content + user data "
+  value = data.template_cloudinit_config.config.rendered
 }
