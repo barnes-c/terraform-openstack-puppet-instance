@@ -1,9 +1,6 @@
 locals {
   is_physical = lookup(data.openstack_compute_flavor_v2.flavor.extra_specs, "cern:physical", "false") == "true"
-
-  mac_address = local.is_physical ? "00:00:00:00:00:00" : (
-    try(data.openstack_networking_port_v2.instance_port.mac_address, null)
-  )
+  mac_address = local.is_physical ? "00:00:00:00:00:00" : local.has_port ? data.openstack_networking_port_v2.instance_port[0].mac_address : "00:00:00:00:00:00"
 }
 
 resource "foreman_host" "host" {
