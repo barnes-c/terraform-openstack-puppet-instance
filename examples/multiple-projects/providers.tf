@@ -1,3 +1,8 @@
+provider "certmgr" {
+  host = "hector.cern.ch"
+  port     = 8008
+}
+
 provider "foreman" {
   client_auth_negotiate = true
   location_id           = var.location_id
@@ -5,12 +10,7 @@ provider "foreman" {
   server_hostname       = "${var.foreman_hostname}:8443" # Using port 8443 for Kerberos 
 }
 
-provider "openstack" {
-  alias     = "first_project"
-  tenant_id = var.tenant_id_1
-}
-
-provider "openstack" {
-  alias     = "second_project"
-  tenant_id = var.tenant_id_2
+provider "roger" {
+  host = "teigicritical-woger-direct.cern.ch"
+  port = 8201
 }

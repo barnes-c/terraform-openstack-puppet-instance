@@ -173,9 +173,9 @@ variable "region" {
 }
 
 variable "roger_appstate" {
-  description = "Optional appstate value."
+  description = "Optional appstate value. Possible values are 'production', 'draining' or 'quiesce'"
   type        = string
-  default     = "build"
+  default     = "production"
 }
 
 variable "roger_host" {
