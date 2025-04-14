@@ -2,7 +2,7 @@ terraform {
   required_providers {
     certmgr = {
       source = "barnes-c/certmgr"
-      version = "1.1.23"
+      version = "1.1.24"
     }
     foreman = {
       source  = "terraform-coop/foreman"
@@ -10,7 +10,7 @@ terraform {
     }
     roger = {
       source = "barnes-c/roger"
-      version = "1.1.12"
+      version = "1.1.14"
     }
   }
   required_version = ">= 1.0"
