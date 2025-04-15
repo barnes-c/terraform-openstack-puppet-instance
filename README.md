@@ -92,60 +92,117 @@ terraform apply
 ```
 
 <!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_certmgr"></a> [certmgr](#requirement\_certmgr) | 1.1.24 |
+| <a name="requirement_foreman"></a> [foreman](#requirement\_foreman) | 0.7.0 |
+| <a name="requirement_http"></a> [http](#requirement\_http) | >= 2.0.0 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.1.0 |
+| <a name="requirement_openstack"></a> [openstack](#requirement\_openstack) | 3.0.0 |
+| <a name="requirement_roger"></a> [roger](#requirement\_roger) | 1.1.14 |
+| <a name="requirement_template"></a> [template](#requirement\_template) | 2.2.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | 0.13.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_certmgr"></a> [certmgr](#provider\_certmgr) | 1.1.24 |
+| <a name="provider_foreman"></a> [foreman](#provider\_foreman) | 0.7.0 |
+| <a name="provider_openstack"></a> [openstack](#provider\_openstack) | 3.0.0 |
+| <a name="provider_roger"></a> [roger](#provider\_roger) | 1.1.14 |
+| <a name="provider_template"></a> [template](#provider\_template) | 2.2.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.13.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [certmgr_certificate.certificate](https://registry.terraform.io/providers/barnes-c/certmgr/1.1.24/docs/resources/certificate) | resource |
+| [foreman_host.host](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/resources/host) | resource |
+| [openstack_blockstorage_volume_v3.volume](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/resources/blockstorage_volume_v3) | resource |
+| [openstack_compute_instance_v2.instance](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/resources/compute_instance_v2) | resource |
+| [openstack_compute_volume_attach_v2.volume_attach](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/resources/compute_volume_attach_v2) | resource |
+| [roger_state.state](https://registry.terraform.io/providers/barnes-c/roger/1.1.14/docs/resources/state) | resource |
+| [time_static.timestamp](https://registry.terraform.io/providers/hashicorp/time/0.13.0/docs/resources/static) | resource |
+| [foreman_architecture.architecture](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/architecture) | data source |
+| [foreman_domain.domain](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/domain) | data source |
+| [foreman_environment.env](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/environment) | data source |
+| [foreman_hostgroup.hostgroup](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/hostgroup) | data source |
+| [foreman_media.media](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/media) | data source |
+| [foreman_model.model](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/model) | data source |
+| [foreman_operatingsystem.os](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/operatingsystem) | data source |
+| [foreman_partitiontable.ptable](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/partitiontable) | data source |
+| [openstack_compute_flavor_v2.flavor](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/compute_flavor_v2) | data source |
+| [openstack_compute_keypair_v2.kp](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/compute_keypair_v2) | data source |
+| [openstack_identity_auth_scope_v3.scope](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/identity_auth_scope_v3) | data source |
+| [openstack_images_image_v2.image](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/images_image_v2) | data source |
+| [openstack_networking_port_v2.instance_port](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/networking_port_v2) | data source |
+| [openstack_networking_secgroup_v2.secgroup](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/networking_secgroup_v2) | data source |
+| [template_cloudinit_config.config](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/cloudinit_config) | data source |
+| [template_file.puppetinit](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/file) | data source |
 
 ## Inputs
 
-| Name                                                                                                      | Description                                                                            | Type           | Default                                                    | Required |
-| --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------- | :------: |
-| <a name="input_availability_zone"></a> [availability_zone](#input_availability_zone)                      | The availability zone for the instance                                                 | `string`       | `""`                                                       |    no    |
-| <a name="input_certmgr_deref_alias"></a> [certmgr_deref_alias](#input_certmgr_deref_alias)                | Whether to dereference DNS aliases                                                     | `bool`         | `false`                                                    |    no    |
-| <a name="input_certmgr_host"></a> [certmgr_host](#input_certmgr_host)                                     | Certificate Manager service hostname                                                   | `string`       | `"hector.cern.ch"`                                         |    no    |
-| <a name="input_certmgr_port"></a> [certmgr_port](#input_certmgr_port)                                     | Certificate Manager service port                                                       | `number`       | `8008`                                                     |    no    |
-| <a name="input_certmgr_timeout"></a> [certmgr_timeout](#input_certmgr_timeout)                            | Timeout for Certmgr requests                                                           | `number`       | `30`                                                       |    no    |
-| <a name="input_foreman_domain"></a> [foreman_domain](#input_foreman_domain)                               | The domain name in which the instance should be created (e.g. cern.ch, dyndns.cern.ch) | `string`       | `"cern.ch"`                                                |    no    |
-| <a name="input_foreman_environment"></a> [foreman_environment](#input_foreman_environment)                | The Foreman environment                                                                | `string`       | `"qa"`                                                     |    no    |
-| <a name="input_foreman_hostgroup"></a> [foreman_hostgroup](#input_foreman_hostgroup)                      | The title of the foreman hostgroup which the instance should be in                     | `string`       | `"playground"`                                             |    no    |
-| <a name="input_foreman_hostname"></a> [foreman_hostname](#input_foreman_hostname)                         | The hostname of the foreman server                                                     | `string`       | `"judy.cern.ch"`                                           |    no    |
-| <a name="input_foreman_location_id"></a> [foreman_location_id](#input_foreman_location_id)                | The foreman location ID                                                                | `number`       | `1`                                                        |    no    |
-| <a name="input_foreman_managed"></a> [foreman_managed](#input_foreman_managed)                            | If the foreman host should be managed (default: true)                                  | `bool`         | `true`                                                     |    no    |
-| <a name="input_foreman_media_name"></a> [foreman_media_name](#input_foreman_media_name)                   | The name of the foreman medium                                                         | `string`       | `"RedHatCERN"`                                             |    no    |
-| <a name="input_foreman_model_name"></a> [foreman_model_name](#input_foreman_model_name)                   | The name of the foreman model                                                          | `string`       | `"OpenStack Compute"`                                      |    no    |
-| <a name="input_foreman_organization_id"></a> [foreman_organization_id](#input_foreman_organization_id)    | The foreman organization ID                                                            | `number`       | `2`                                                        |    no    |
-| <a name="input_image_distro"></a> [image_distro](#input_image_distro)                                     | The name of the OpenStack distro                                                       | `string`       | `"RHEL"`                                                   |    no    |
-| <a name="input_image_os_major_version"></a> [image_os_major_version](#input_image_os_major_version)       | Major version of the OS                                                                | `string`       | `"9"`                                                      |    no    |
-| <a name="input_image_os_minor_version"></a> [image_os_minor_version](#input_image_os_minor_version)       | Minor version of the OS                                                                | `string`       | `"5"`                                                      |    no    |
-| <a name="input_image_ref"></a> [image_ref](#input_image_ref)                                              | Image to be turned into a volume (optional)                                            | `string`       | `""`                                                       |    no    |
-| <a name="input_instance_count"></a> [instance_count](#input_instance_count)                               | Number of instances to spawn                                                           | `number`       | `1`                                                        |    no    |
-| <a name="input_instance_flavor"></a> [instance_flavor](#input_instance_flavor)                            | The name of the OpenStack flavor                                                       | `string`       | `"m2.small"`                                               |    no    |
-| <a name="input_instance_key_pair_name"></a> [instance_key_pair_name](#input_instance_key_pair_name)       | Name of the key pair to be used for the instance                                       | `string`       | `""`                                                       |    no    |
-| <a name="input_instance_name"></a> [instance_name](#input_instance_name)                                  | The name of the OpenStack instance                                                     | `string`       | `"terraform-openstack-puppet-instance-1"`                  |    no    |
-| <a name="input_instance_name_prefix"></a> [instance_name_prefix](#input_instance_name_prefix)             | Prefix for the instance name                                                           | `string`       | `"test"`                                                   |    no    |
-| <a name="input_instance_waitdns"></a> [instance_waitdns](#input_instance_waitdns)                         | Wether the instance should wait for the dns to be propagated                           | `bool`         | `false`                                                    |    no    |
-| <a name="input_landb_mainuser"></a> [landb_mainuser](#input_landb_mainuser)                               | LanDB user of the instance                                                             | `string`       | `""`                                                       |    no    |
-| <a name="input_landb_responsible"></a> [landb_responsible](#input_landb_responsible)                      | LanDB responsible of the instance                                                      | `string`       | `""`                                                       |    no    |
-| <a name="input_no_reboot"></a> [no_reboot](#input_no_reboot)                                              | no reboot (default 0)                                                                  | `number`       | `0`                                                        |    no    |
-| <a name="input_ptable_name"></a> [ptable_name](#input_ptable_name)                                        | The name of the partition table                                                        | `string`       | `"AFS Server"`                                             |    no    |
-| <a name="input_puppet_master_host"></a> [puppet_master_host](#input_puppet_master_host)                   | Puppet master hostname                                                                 | `string`       | `"it-puppet-masters-public-a.cern.ch"`                     |    no    |
-| <a name="input_region"></a> [region](#input_region)                                                       | Region in which the instance should spawn                                              | `string`       | `"cern"`                                                   |    no    |
-| <a name="input_roger_appstate"></a> [roger_appstate](#input_roger_appstate)                               | Optional appstate value.                                                               | `string`       | `"build"`                                                  |    no    |
-| <a name="input_roger_host"></a> [roger_host](#input_roger_host)                                           | The host for the Roger service.                                                        | `string`       | `"woger-direct.cern.ch"`                                   |    no    |
-| <a name="input_roger_message"></a> [roger_message](#input_roger_message)                                  | Optional message for state creation/updating.                                          | `string`       | `""`                                                       |    no    |
-| <a name="input_roger_port"></a> [roger_port](#input_roger_port)                                           | The port for the Roger service.                                                        | `number`       | `8201`                                                     |    no    |
-| <a name="input_security_groups"></a> [security_groups](#input_security_groups)                            | List of security groups to be applied to the instance                                  | `list(string)` | <pre>[<br/> "ssh",<br/> "icmp",<br/> "default"<br/>]</pre> |    no    |
-| <a name="input_user_data"></a> [user_data](#input_user_data)                                              | Extra user data to be added to the instance, e.g. a cloud-config snippet.              | `string`       | `""`                                                       |    no    |
-| <a name="input_volume_availability_zone"></a> [volume_availability_zone](#input_volume_availability_zone) | Availability zone for the volume                                                       | `string`       | `""`                                                       |    no    |
-| <a name="input_volume_count"></a> [volume_count](#input_volume_count)                                     | Number of volumes to create per instance.                                              | `number`       | `1`                                                        |    no    |
-| <a name="input_volume_name"></a> [volume_name](#input_volume_name)                                        | The name of the volume                                                                 | `string`       | `"terraform-openstack-puppet-volume"`                      |    no    |
-| <a name="input_volume_size"></a> [volume_size](#input_volume_size)                                        | Size of each volume. If 0, no volume is created.                                       | `number`       | `0`                                                        |    no    |
-| <a name="input_volume_type"></a> [volume_type](#input_volume_type)                                        | Type of the volume                                                                     | `string`       | `""`                                                       |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | The availability zone for the instance | `string` | `""` | no |
+| <a name="input_certmgr_deref_alias"></a> [certmgr\_deref\_alias](#input\_certmgr\_deref\_alias) | Whether to dereference DNS aliases | `bool` | `false` | no |
+| <a name="input_certmgr_host"></a> [certmgr\_host](#input\_certmgr\_host) | Certificate Manager service hostname | `string` | `"hector.cern.ch"` | no |
+| <a name="input_certmgr_port"></a> [certmgr\_port](#input\_certmgr\_port) | Certificate Manager service port | `number` | `8008` | no |
+| <a name="input_certmgr_timeout"></a> [certmgr\_timeout](#input\_certmgr\_timeout) | Timeout for Certmgr requests | `number` | `30` | no |
+| <a name="input_foreman_domain"></a> [foreman\_domain](#input\_foreman\_domain) | The domain name in which the instance should be created (e.g. cern.ch, dyndns.cern.ch) | `string` | `"cern.ch"` | no |
+| <a name="input_foreman_environment"></a> [foreman\_environment](#input\_foreman\_environment) | The Foreman environment | `string` | `"qa"` | no |
+| <a name="input_foreman_hostgroup"></a> [foreman\_hostgroup](#input\_foreman\_hostgroup) | The title of the foreman hostgroup which the instance should be in | `string` | `"playground"` | no |
+| <a name="input_foreman_hostname"></a> [foreman\_hostname](#input\_foreman\_hostname) | The hostname of the foreman server | `string` | `"judy.cern.ch"` | no |
+| <a name="input_foreman_location_id"></a> [foreman\_location\_id](#input\_foreman\_location\_id) | The foreman location ID | `number` | `1` | no |
+| <a name="input_foreman_media_name"></a> [foreman\_media\_name](#input\_foreman\_media\_name) | The name of the foreman medium | `string` | `"RedHatCERN"` | no |
+| <a name="input_foreman_model_name"></a> [foreman\_model\_name](#input\_foreman\_model\_name) | The name of the foreman model | `string` | `"OpenStack Compute"` | no |
+| <a name="input_foreman_organization_id"></a> [foreman\_organization\_id](#input\_foreman\_organization\_id) | The foreman organization ID | `number` | `2` | no |
+| <a name="input_image_distro"></a> [image\_distro](#input\_image\_distro) | The name of the OpenStack distro | `string` | `"RHEL"` | no |
+| <a name="input_image_os_major_version"></a> [image\_os\_major\_version](#input\_image\_os\_major\_version) | Major version of the OS | `string` | `"9"` | no |
+| <a name="input_image_os_minor_version"></a> [image\_os\_minor\_version](#input\_image\_os\_minor\_version) | Minor version of the OS | `string` | `"5"` | no |
+| <a name="input_image_ref"></a> [image\_ref](#input\_image\_ref) | Image to be turned into a volume (optional) | `string` | `""` | no |
+| <a name="input_instance_count"></a> [instance\_count](#input\_instance\_count) | Number of instances to spawn | `number` | `1` | no |
+| <a name="input_instance_flavor"></a> [instance\_flavor](#input\_instance\_flavor) | The name of the OpenStack flavor | `string` | `"m2.small"` | no |
+| <a name="input_instance_key_pair_name"></a> [instance\_key\_pair\_name](#input\_instance\_key\_pair\_name) | Name of the key pair to be used for the instance | `string` | `""` | no |
+| <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | The name of the OpenStack instance | `string` | `"terraform-openstack-puppet-instance-1"` | no |
+| <a name="input_instance_name_prefix"></a> [instance\_name\_prefix](#input\_instance\_name\_prefix) | Prefix for the instance name | `string` | `"test"` | no |
+| <a name="input_instance_waitdns"></a> [instance\_waitdns](#input\_instance\_waitdns) | Wether the instance should wait for the dns to be propagated | `bool` | `true` | no |
+| <a name="input_landb_mainuser"></a> [landb\_mainuser](#input\_landb\_mainuser) | LanDB user of the instance | `string` | `""` | no |
+| <a name="input_landb_responsible"></a> [landb\_responsible](#input\_landb\_responsible) | LanDB responsible of the instance | `string` | `""` | no |
+| <a name="input_no_reboot"></a> [no\_reboot](#input\_no\_reboot) | no reboot (default 0) | `number` | `0` | no |
+| <a name="input_ptable_name"></a> [ptable\_name](#input\_ptable\_name) | The name of the partition table | `string` | `"AFS Server"` | no |
+| <a name="input_puppet_master_host"></a> [puppet\_master\_host](#input\_puppet\_master\_host) | Puppet master hostname | `string` | `"it-puppet-masters-public-a.cern.ch"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Region in which the instance should spawn | `string` | `"cern"` | no |
+| <a name="input_roger_appstate"></a> [roger\_appstate](#input\_roger\_appstate) | Optional appstate value. Possible values are 'production', 'draining' or 'quiesce' | `string` | `"production"` | no |
+| <a name="input_roger_host"></a> [roger\_host](#input\_roger\_host) | The host for the Roger service. | `string` | `"woger-direct.cern.ch"` | no |
+| <a name="input_roger_message"></a> [roger\_message](#input\_roger\_message) | Optional message for state creation/updating. | `string` | `""` | no |
+| <a name="input_roger_port"></a> [roger\_port](#input\_roger\_port) | The port for the Roger service. | `number` | `8201` | no |
+| <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | List of security groups to be applied to the instance | `list(string)` | <pre>[<br/>  "ssh",<br/>  "icmp",<br/>  "default"<br/>]</pre> | no |
+| <a name="input_user_data"></a> [user\_data](#input\_user\_data) | Extra user data to be added to the instance, e.g. a cloud-config snippet. | `string` | `""` | no |
+| <a name="input_volume_availability_zone"></a> [volume\_availability\_zone](#input\_volume\_availability\_zone) | Availability zone for the volume | `string` | `""` | no |
+| <a name="input_volume_count"></a> [volume\_count](#input\_volume\_count) | Number of volumes to create per instance. | `number` | `1` | no |
+| <a name="input_volume_name"></a> [volume\_name](#input\_volume\_name) | The name of the volume | `string` | `"terraform-openstack-puppet-volume"` | no |
+| <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | Size of each volume. If 0, no volume is created. | `number` | `0` | no |
+| <a name="input_volume_type"></a> [volume\_type](#input\_volume\_type) | Type of the volume | `string` | `""` | no |
 
 ## Outputs
 
-| Name                                                                    | Description                                        |
-| ----------------------------------------------------------------------- | -------------------------------------------------- |
-| <a name="output_instance_id"></a> [instance_id](#output_instance_id)    | The OpenStack instance ID                          |
-| <a name="output_ipv4_address"></a> [ipv4_address](#output_ipv4_address) | The IPv4 address of the instance                   |
-| <a name="output_ipv6_address"></a> [ipv6_address](#output_ipv6_address) | The IPv6 address of the instance                   |
-| <a name="output_user_data"></a> [user_data](#output_user_data)          | The user data thats being injected in the instance |
-
+| Name | Description |
+|------|-------------|
+| <a name="output_flavor_id"></a> [flavor\_id](#output\_flavor\_id) | The OpenStack flavor ID |
+| <a name="output_image_id"></a> [image\_id](#output\_image\_id) | The OpenStack image ID |
+| <a name="output_instance_id"></a> [instance\_id](#output\_instance\_id) | The OpenStack instance ID |
+| <a name="output_ipv4_address"></a> [ipv4\_address](#output\_ipv4\_address) | The IPv4 address of the instance |
+| <a name="output_ipv6_address"></a> [ipv6\_address](#output\_ipv6\_address) | The IPv6 address of the instance |
+| <a name="output_is_physical"></a> [is\_physical](#output\_is\_physical) | Is the instance running on a physical machine? |
+| <a name="output_user_data"></a> [user\_data](#output\_user\_data) | Default puppet init content + user data |
 <!-- END_TF_DOCS -->
