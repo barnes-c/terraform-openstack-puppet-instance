@@ -92,63 +92,6 @@ terraform apply
 ```
 
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_certmgr"></a> [certmgr](#requirement\_certmgr) | 1.1.24 |
-| <a name="requirement_foreman"></a> [foreman](#requirement\_foreman) | 0.7.0 |
-| <a name="requirement_http"></a> [http](#requirement\_http) | >= 2.0.0 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.1.0 |
-| <a name="requirement_openstack"></a> [openstack](#requirement\_openstack) | 3.0.0 |
-| <a name="requirement_roger"></a> [roger](#requirement\_roger) | 1.1.14 |
-| <a name="requirement_template"></a> [template](#requirement\_template) | 2.2.0 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | 0.13.0 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_certmgr"></a> [certmgr](#provider\_certmgr) | 1.1.24 |
-| <a name="provider_foreman"></a> [foreman](#provider\_foreman) | 0.7.0 |
-| <a name="provider_openstack"></a> [openstack](#provider\_openstack) | 3.0.0 |
-| <a name="provider_roger"></a> [roger](#provider\_roger) | 1.1.14 |
-| <a name="provider_template"></a> [template](#provider\_template) | 2.2.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.13.0 |
-
-## Modules
-
-No modules.
-
-## Resources
-
-| Name | Type |
-|------|------|
-| [certmgr_certificate.certificate](https://registry.terraform.io/providers/barnes-c/certmgr/1.1.24/docs/resources/certificate) | resource |
-| [foreman_host.host](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/resources/host) | resource |
-| [openstack_blockstorage_volume_v3.volume](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/resources/blockstorage_volume_v3) | resource |
-| [openstack_compute_instance_v2.instance](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/resources/compute_instance_v2) | resource |
-| [openstack_compute_volume_attach_v2.volume_attach](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/resources/compute_volume_attach_v2) | resource |
-| [roger_state.state](https://registry.terraform.io/providers/barnes-c/roger/1.1.14/docs/resources/state) | resource |
-| [time_static.timestamp](https://registry.terraform.io/providers/hashicorp/time/0.13.0/docs/resources/static) | resource |
-| [foreman_architecture.architecture](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/architecture) | data source |
-| [foreman_domain.domain](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/domain) | data source |
-| [foreman_environment.env](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/environment) | data source |
-| [foreman_hostgroup.hostgroup](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/hostgroup) | data source |
-| [foreman_media.media](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/media) | data source |
-| [foreman_model.model](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/model) | data source |
-| [foreman_operatingsystem.os](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/operatingsystem) | data source |
-| [foreman_partitiontable.ptable](https://registry.terraform.io/providers/terraform-coop/foreman/0.7.0/docs/data-sources/partitiontable) | data source |
-| [openstack_compute_flavor_v2.flavor](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/compute_flavor_v2) | data source |
-| [openstack_compute_keypair_v2.kp](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/compute_keypair_v2) | data source |
-| [openstack_identity_auth_scope_v3.scope](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/identity_auth_scope_v3) | data source |
-| [openstack_images_image_v2.image](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/images_image_v2) | data source |
-| [openstack_networking_port_v2.instance_port](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/networking_port_v2) | data source |
-| [openstack_networking_secgroup_v2.secgroup](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/3.0.0/docs/data-sources/networking_secgroup_v2) | data source |
-| [template_cloudinit_config.config](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/cloudinit_config) | data source |
-| [template_file.puppetinit](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/file) | data source |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
