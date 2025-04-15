@@ -18,3 +18,4 @@ jobs:
           output-method: inject
           git-push: "true"
           git-commit-message: "docs: update terraform docs [skip ci]"
+          args: "--show inputs,outputs"
