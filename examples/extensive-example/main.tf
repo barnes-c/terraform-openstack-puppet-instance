@@ -1,5 +1,6 @@
 module "example-instances1" {
-  source = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.20"
+  source  = "barnes-c/puppet-instance/openstack"
+  version = "1.1.3"
 
   foreman_environment = var.foreman_environment
   foreman_hostgroup   = "playground/chbarnes"
@@ -25,7 +26,8 @@ module "example-instances1" {
 }
 
 module "example-instances2" {
-  source = "git::https://gitlab.cern.ch/ai-config-team/terraform-puppet/terraform-openstack-puppet-instance.git?ref=1.0.20"
+  source  = "barnes-c/puppet-instance/openstack"
+  version = "1.1.3"
 
   foreman_environment = var.foreman_environment
   foreman_hostgroup   = "playground"
