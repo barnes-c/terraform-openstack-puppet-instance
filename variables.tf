@@ -100,16 +100,16 @@ variable "image_ref" {
   default     = ""
 }
 
-variable "instance_flavor" {
-  description = "The name of the OpenStack flavor"
-  type        = string
-  default     = "m2.small"
-}
-
 variable "instance_count" {
   description = "Number of instances to spawn"
   type        = number
   default     = 1
+}
+
+variable "instance_flavor" {
+  description = "The name of the OpenStack flavor"
+  type        = string
+  default     = "m2.small"
 }
 
 variable "instance_key_pair_name" {
@@ -160,6 +160,12 @@ variable "ptable_name" {
   default     = "AFS Server"
 }
 
+variable "puppet_init_path" {
+  description = "Path to the puppet init script"
+  type        = string
+  default     = "../puppetinit"
+}
+
 variable "puppet_master_host" {
   description = "Puppet master hostname"
   type        = string
@@ -170,6 +176,24 @@ variable "region" {
   description = "Region in which the instance should spawn"
   type        = string
   default     = "cern"
+}
+
+variable "responsible_egroup_email" {
+  description = "E-group email for the sets responsible"
+  type        = string
+  default     = "terraform-provider-landb@cern.ch"
+}
+
+variable "responsible_egroup_name" {
+  description = "E-group name for the sets responsible (Uppercase)"
+  type        = string
+  default     = "TERRAFORM-PROVIDER-LANDB"
+}
+
+variable "responsible_type" {
+  description = "Contact type for the set (e.g. EGROUP)"
+  type        = string
+  default     = "EGROUP"
 }
 
 variable "roger_appstate" {
@@ -200,6 +224,42 @@ variable "security_groups" {
   description = "List of security groups to be applied to the instance"
   type        = list(string)
   default     = ["ssh", "icmp", "default"]
+}
+
+variable "set_description" {
+  description = "Optional description for the set"
+  type        = string
+  default     = ""
+}
+
+variable "set_name" {
+  description = "The name of the shared LanDB set"
+  type        = string
+  default     = "terraform-openstack-puppet-set"
+}
+
+variable "set_network_domain" {
+  description = "Network domain for the shared set"
+  type        = string
+  default     = "GPN"
+}
+
+variable "set_project_url" {
+  description = "Optional URL for the set"
+  type        = string
+  default     = ""
+}
+
+variable "set_receive_notifications" {
+  description = "Whether the set should receive notifications"
+  type        = bool
+  default     = true
+}
+
+variable "set_type" {
+  description = "Type of the LanDB set (e.g. INTERDOMAIN)"
+  type        = string
+  default     = "INTERDOMAIN"
 }
 
 variable "user_data" {
