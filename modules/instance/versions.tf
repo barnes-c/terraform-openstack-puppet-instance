@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     certmgr = {
-      source = "barnes-c/certmgr"
+      source  = "barnes-c/certmgr"
       version = "1.2.1"
     }
     foreman = {
@@ -12,16 +12,12 @@ terraform {
       source  = "hashicorp/http"
       version = ">= 2.0.0"
     }
-    landb = {
-      source  = "barnes-c/landb"
-      version = ">= 1.0.8"
-    }
     local = {
       source  = "hashicorp/local"
       version = ">= 2.1.0"
     }
     roger = {
-      source = "barnes-c/roger"
+      source  = "barnes-c/roger"
       version = "1.2.3"
     }
     template = {

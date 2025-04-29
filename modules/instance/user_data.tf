@@ -1,5 +1,5 @@
 data "template_file" "puppetinit" {
-  template = file("${path.module}/puppetinit")
+  template = file(var.puppet_init_path)
   vars = {
     _CASERVER_HOSTNAME     = var.certmgr_host
     _CASERVER_PORT         = var.certmgr_port
