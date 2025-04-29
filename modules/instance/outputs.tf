@@ -20,12 +20,12 @@ output "instance_name" {
 
 output "ipv4_address" {
   description = "The IPv4 address of the instance"
-  value = local.ipv4
+  value       = local.ipv4
 }
 
 output "ipv6_address" {
   description = "The IPv6 address of the instance"
-  value = local.ipv6
+  value       = local.ipv6
 }
 
 output "is_physical" {
