@@ -1,11 +1,7 @@
-variable "set_name" {
-  description = "The name of the Landb set to attach to"
+variable "description" {
+  description = "Optional description for the attachment"
   type        = string
-}
-
-variable "name" {
-  description = "Unique name for this attachment (e.g. <set>-01)"
-  type        = string
+  default     = ""
 }
 
 variable "ipv4" {
@@ -18,8 +14,12 @@ variable "ipv6" {
   type        = string
 }
 
-variable "description" {
-  description = "Optional description for the attachment"
+variable "name" {
+  description = "Unique name for this attachment (e.g. <set>-01)"
   type        = string
-  default     = ""
+}
+
+variable "set_name" {
+  description = "The name of the Landb set to attach to"
+  type        = string
 }

@@ -100,16 +100,16 @@ variable "image_ref" {
   default     = ""
 }
 
-variable "instance_flavor" {
-  description = "The name of the OpenStack flavor"
-  type        = string
-  default     = "m2.small"
-}
-
 variable "instance_count" {
   description = "Number of instances to spawn"
   type        = number
   default     = 1
+}
+
+variable "instance_flavor" {
+  description = "The name of the OpenStack flavor"
+  type        = string
+  default     = "m2.small"
 }
 
 variable "instance_key_pair_name" {
@@ -158,6 +158,12 @@ variable "ptable_name" {
   description = "The name of the partition table"
   type        = string
   default     = "AFS Server"
+}
+
+variable "puppet_init_path" {
+  description = "Path to the puppet init script"
+  type        = string
+  default     = "../puppetinit"
 }
 
 variable "puppet_master_host" {
@@ -236,10 +242,4 @@ variable "volume_type" {
   description = "Type of the volume"
   type        = string
   default     = ""
-}
-
-variable "puppet_init_path" {
-  description = "Path to the puppet init script"
-  type        = string
-  default     = "../puppetinit"
 }

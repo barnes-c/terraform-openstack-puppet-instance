@@ -1,13 +1,3 @@
-output "flavor_id" {
-  description = "The OpenStack flavor ID"
-  value       = module.instance[0].flavor_id
-}
-
-output "image_id" {
-  description = "The OpenStack image ID"
-  value       = module.instance[0].image_id
-}
-
 output "all_instance_ids" {
   description = "IDs of all instances created"
   value       = module.instance[*].instance_id
@@ -38,6 +28,16 @@ output "all_user_data" {
   value       = module.instance[*].user_data
 }
 
+output "flavor_id" {
+  description = "The OpenStack flavor ID"
+  value       = module.instance[0].flavor_id
+}
+
+output "image_id" {
+  description = "The OpenStack image ID"
+  value       = module.instance[0].image_id
+}
+
 output "set_attach_id" {
   description = "The attachment's unique ID"
   value       = module.landb_set_attachments[*].set_attach_id
@@ -63,12 +63,12 @@ output "set_receive_notifications" {
   value       = module.landb_set[0].set_receive_notifications
 }
 
-output "set_responsible_egroup_name" {
-  description = "The responsible e-group name of the created set"
-  value       = module.landb_set[0].set_responsible_egroup_name
-}
-
 output "set_responsible_egroup_email" {
   description = "The responsible e-group email of the created set"
   value       = module.landb_set[0].set_responsible_egroup_email
+}
+
+output "set_responsible_egroup_name" {
+  description = "The responsible e-group name of the created set"
+  value       = module.landb_set[0].set_responsible_egroup_name
 }

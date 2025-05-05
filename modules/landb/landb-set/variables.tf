@@ -1,22 +1,17 @@
-variable "name" {
-  description = "Unique name of the Landb set"
+variable "description" {
+  description = "Optional description of the set"
   type        = string
+  default     = ""
 }
 
-variable "type" {
-  description = "Type of the Landb set (e.g. INTERDOMAIN)"
+variable "name" {
+  description = "Unique name of the Landb set"
   type        = string
 }
 
 variable "network_domain" {
   description = "Network domain for the set"
   type        = string
-}
-
-variable "description" {
-  description = "Optional description of the set"
-  type        = string
-  default     = ""
 }
 
 variable "project_url" {
@@ -31,10 +26,9 @@ variable "receive_notifications" {
   default     = false
 }
 
-variable "responsible_type" {
-  description = "Contact type for responsible (e.g. EGROUP)"
+variable "responsible_egroup_email" {
+  description = "Email of the e-group responsible for this set"
   type        = string
-  default     = "EGROUP"
 }
 
 variable "responsible_egroup_name" {
@@ -42,7 +36,13 @@ variable "responsible_egroup_name" {
   type        = string
 }
 
-variable "responsible_egroup_email" {
-  description = "Email of the e-group responsible for this set"
+variable "responsible_type" {
+  description = "Contact type for responsible (e.g. EGROUP)"
+  type        = string
+  default     = "EGROUP"
+}
+
+variable "type" {
+  description = "Type of the Landb set (e.g. INTERDOMAIN)"
   type        = string
 }
