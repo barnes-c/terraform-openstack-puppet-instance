@@ -34,6 +34,6 @@ output "is_physical" {
 }
 
 output "user_data" {
-  description = "Default puppet init content + user data "
+  description = "Default puppet init content + user data"
   value       = data.template_cloudinit_config.config.rendered
 }
