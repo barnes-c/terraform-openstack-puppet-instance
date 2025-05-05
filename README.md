@@ -149,5 +149,21 @@ terraform apply
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_all_instance_ids"></a> [all\_instance\_ids](#output\_all\_instance\_ids) | IDs of all instances created |
+| <a name="output_all_instance_names"></a> [all\_instance\_names](#output\_all\_instance\_names) | Names of all instances created |
+| <a name="output_all_ipv4_addresses"></a> [all\_ipv4\_addresses](#output\_all\_ipv4\_addresses) | All IPv4 addresses of the instances |
+| <a name="output_all_ipv6_addresses"></a> [all\_ipv6\_addresses](#output\_all\_ipv6\_addresses) | All IPv6 addresses of the instances |
+| <a name="output_all_is_physical"></a> [all\_is\_physical](#output\_all\_is\_physical) | Are the instances running on physical machines? |
+| <a name="output_all_user_data"></a> [all\_user\_data](#output\_all\_user\_data) | Default puppet init content + user data |
+| <a name="output_flavor_id"></a> [flavor\_id](#output\_flavor\_id) | The OpenStack flavor ID |
+| <a name="output_image_id"></a> [image\_id](#output\_image\_id) | The OpenStack image ID |
+| <a name="output_set_attach_id"></a> [set\_attach\_id](#output\_set\_attach\_id) | The attachment's unique ID |
+| <a name="output_set_id"></a> [set\_id](#output\_set\_id) | The name of the attachment |
+| <a name="output_set_name"></a> [set\_name](#output\_set\_name) | The name of the created set (same as ID) |
+| <a name="output_set_network_domain"></a> [set\_network\_domain](#output\_set\_network\_domain) | The network domain of the created set |
+| <a name="output_set_receive_notifications"></a> [set\_receive\_notifications](#output\_set\_receive\_notifications) | Whether the set receives notifications |
+| <a name="output_set_responsible_egroup_email"></a> [set\_responsible\_egroup\_email](#output\_set\_responsible\_egroup\_email) | The responsible e-group email of the created set |
+| <a name="output_set_responsible_egroup_name"></a> [set\_responsible\_egroup\_name](#output\_set\_responsible\_egroup\_name) | The responsible e-group name of the created set |
 <!-- END_TF_DOCS -->
