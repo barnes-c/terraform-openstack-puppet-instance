@@ -59,7 +59,7 @@ module "landb_set" {
   responsible_egroup_email = var.responsible_egroup_email
 }
 
-module "landb_attachments" {
+module "landb_set_attachments" {
   source = "./modules/landb/landb-attach"
 
   for_each = {
@@ -67,7 +67,7 @@ module "landb_attachments" {
     format("%02d", idx + 1) => inst
   }
 
-  set_name    = module.landb_set.name
+  set_name    = module.landb_set.set_name
   name        = "${each.value.instance_name}.cern.ch"
   ipv4        = each.value.ipv4_address
   ipv6        = each.value.ipv6_address
