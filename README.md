@@ -149,13 +149,5 @@ terraform apply
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_flavor_id"></a> [flavor\_id](#output\_flavor\_id) | The OpenStack flavor ID |
-| <a name="output_image_id"></a> [image\_id](#output\_image\_id) | The OpenStack image ID |
-| <a name="output_instance_id"></a> [instance\_id](#output\_instance\_id) | The OpenStack instance ID |
-| <a name="output_ipv4_address"></a> [ipv4\_address](#output\_ipv4\_address) | The IPv4 address of the instance |
-| <a name="output_ipv6_address"></a> [ipv6\_address](#output\_ipv6\_address) | The IPv6 address of the instance |
-| <a name="output_is_physical"></a> [is\_physical](#output\_is\_physical) | Is the instance running on a physical machine? |
-| <a name="output_user_data"></a> [user\_data](#output\_user\_data) | Default puppet init content + user data |
+No outputs.
 <!-- END_TF_DOCS -->
