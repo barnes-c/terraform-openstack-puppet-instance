@@ -38,7 +38,7 @@ output "image_id" {
   value       = module.instance[0].image_id
 }
 
-output "set_attach_id_map" {
+output "set_attach_id" {
   description = "Attachment IDs by instance"
   value = {
     for key, m in module.landb_set_attachments :
@@ -47,7 +47,7 @@ output "set_attach_id_map" {
 }
 
 output "set_id" {
-  description = "The name of the attachment"
+  description = "The name of the set"
   value       = module.landb_set.set_id
 }
 
@@ -57,7 +57,7 @@ output "set_name" {
 }
 
 output "set_network_domain" {
-  description = "The network domain of the created set"
+  description = "The network domain of the set"
   value       = module.landb_set.set_network_domain
 }
 
