@@ -47,16 +47,16 @@ module "instance" {
 module "landb_set" {
   source = "./modules/landb/landb-set"
 
-  name                  = var.set_name
+  name                  = format("%s%s-set", var.instance_name_prefix, var.instance_name)
   type                  = var.set_type
   network_domain        = var.set_network_domain
   description           = var.set_description != "" ? var.set_description : "Landb set for ${var.instance_name} deployment"
   project_url           = var.set_project_url
   receive_notifications = var.set_receive_notifications
 
-  responsible_type         = var.responsible_type
-  responsible_egroup_name  = var.responsible_egroup_name
-  responsible_egroup_email = var.responsible_egroup_email
+  responsible_type         = var.landb_responsible_type
+  responsible_egroup_name  = var.landb_responsible_egroup_name
+  responsible_egroup_email = var.landb_responsible_egroup_email
 }
 
 module "landb_set_attachments" {

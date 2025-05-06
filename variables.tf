@@ -121,13 +121,13 @@ variable "instance_key_pair_name" {
 variable "instance_name" {
   description = "The name of the OpenStack instance"
   type        = string
-  default     = "terraform-openstack-puppet-instance-1"
+  default     = "tf-instance-1"
 }
 
 variable "instance_name_prefix" {
   description = "Prefix for the instance name"
   type        = string
-  default     = "test"
+  default     = ""
 }
 
 variable "instance_waitdns" {
@@ -146,6 +146,24 @@ variable "landb_responsible" {
   description = "LanDB responsible of the instance"
   type        = string
   default     = ""
+}
+
+variable "landb_responsible_egroup_email" {
+  description = "E-group email for the sets responsible"
+  type        = string
+  default     = "terraform-provider-landb@cern.ch"
+}
+
+variable "landb_responsible_egroup_name" {
+  description = "E-group name for the sets responsible (Uppercase)"
+  type        = string
+  default     = "TERRAFORM-PROVIDER-LANDB"
+}
+
+variable "landb_responsible_type" {
+  description = "Contact type for the set (e.g. EGROUP)"
+  type        = string
+  default     = "EGROUP"
 }
 
 variable "no_reboot" {
@@ -170,24 +188,6 @@ variable "region" {
   description = "Region in which the instance should spawn"
   type        = string
   default     = "cern"
-}
-
-variable "responsible_egroup_email" {
-  description = "E-group email for the sets responsible"
-  type        = string
-  default     = "terraform-provider-landb@cern.ch"
-}
-
-variable "responsible_egroup_name" {
-  description = "E-group name for the sets responsible (Uppercase)"
-  type        = string
-  default     = "TERRAFORM-PROVIDER-LANDB"
-}
-
-variable "responsible_type" {
-  description = "Contact type for the set (e.g. EGROUP)"
-  type        = string
-  default     = "EGROUP"
 }
 
 variable "roger_appstate" {
@@ -224,12 +224,6 @@ variable "set_description" {
   description = "Optional description for the set"
   type        = string
   default     = ""
-}
-
-variable "set_name" {
-  description = "The name of the shared LanDB set"
-  type        = string
-  default     = "terraform-openstack-puppet-set"
 }
 
 variable "set_network_domain" {
@@ -277,7 +271,7 @@ variable "volume_count" {
 variable "volume_name" {
   description = "The name of the volume"
   type        = string
-  default     = "terraform-openstack-puppet-volume"
+  default     = "tf-volume"
 }
 
 variable "volume_size" {
