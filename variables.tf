@@ -221,19 +221,19 @@ variable "security_groups" {
 }
 
 variable "set_description" {
-  description = "Optional description for the set"
+  description = "Description for a new LanDB set"
   type        = string
   default     = ""
 }
 
 variable "set_name" {
-  description = "Name of the LanDB set"
+  description = "Name of the LanDB set to which instances should be added"
   type        = string
   default     = "tf-set"
 }
 
 variable "set_network_domain" {
-  description = "Network domain for the shared set"
+  description = "Network domain for a new set"
   type        = string
   default     = "GPN"
 }
@@ -245,19 +245,19 @@ variable "set_present" {
 }
 
 variable "set_project_url" {
-  description = "Optional URL for the set"
+  description = "Project URL for a new set"
   type        = string
   default     = ""
 }
 
 variable "set_receive_notifications" {
-  description = "Whether the set should receive notifications"
+  description = "Whether a new set should send notifications about its state"
   type        = bool
   default     = true
 }
 
 variable "set_type" {
-  description = "Type of the LanDB set (e.g. INTERDOMAIN)"
+  description = "Type of a new LanDB set (e.g. INTERDOMAIN)"
   type        = string
   default     = "INTERDOMAIN"
 }
