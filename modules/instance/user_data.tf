@@ -1,6 +1,5 @@
-data "template_file" "puppetinit" {
-  template = file("${path.module}/puppetinit")
-  vars = {
+locals {
+  puppetinit_content = templatefile("${path.module}/puppetinit.tpl", {
     _CASERVER_HOSTNAME     = var.certmgr_host
     _CASERVER_PORT         = var.certmgr_port
     _PUPPETMASTER_HOSTNAME = var.puppet_master_host
@@ -8,7 +7,7 @@ data "template_file" "puppetinit" {
     _FOREMAN_ENVIRONMENT   = var.foreman_environment
     _NO_REBOOT             = var.no_reboot
     _GENERATED_TS          = time_static.timestamp.rfc3339
-  }
+  })
 }
 
 data "template_cloudinit_config" "config" {
@@ -18,7 +17,7 @@ data "template_cloudinit_config" "config" {
   part {
     filename     = "puppetinit"
     content_type = "text/x-shellscript"
-    content      = data.template_file.puppetinit.rendered
+    content      = local.puppetinit_content
   }
 
   part {
