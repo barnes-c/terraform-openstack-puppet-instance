@@ -2,7 +2,7 @@ terraform {
   required_providers {
     certmgr = {
       source  = "barnes-c/certmgr"
-      version = "1.2.1"
+      version = "1.3.0"
     }
     foreman = {
       source  = "terraform-coop/foreman"
