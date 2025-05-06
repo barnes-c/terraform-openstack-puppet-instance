@@ -226,10 +226,22 @@ variable "set_description" {
   default     = ""
 }
 
+variable "set_name" {
+  description = "Name of the LanDB set"
+  type        = string
+  default     = "tf-set"
+}
+
 variable "set_network_domain" {
   description = "Network domain for the shared set"
   type        = string
   default     = "GPN"
+}
+
+variable "set_present" {
+  description = "Whether the set already exists. If false, the set is required to be already created in LanDB"
+  type        = bool
+  default     = true
 }
 
 variable "set_project_url" {

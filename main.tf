@@ -47,7 +47,8 @@ module "instance" {
 module "landb_set" {
   source = "./modules/landb/landb-set"
 
-  name                  = format("%s%s-set", var.instance_name_prefix, var.instance_name)
+  name                  = var.set_name
+  set_present           = var.set_present
   type                  = var.set_type
   network_domain        = var.set_network_domain
   description           = var.set_description != "" ? var.set_description : "Landb set for ${var.instance_name} deployment"

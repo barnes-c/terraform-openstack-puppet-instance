@@ -1,4 +1,5 @@
 resource "landb_set" "set" {
+  count                = var.set_present ? 0 : 1
   name                  = upper(var.name)
   type                  = var.type
   network_domain        = var.network_domain
@@ -14,4 +15,9 @@ resource "landb_set" "set" {
       email = var.responsible_egroup_email
     }
   }
+}
+
+data "landb_set" "set" {
+  count = var.set_present ? 1 : 0
+  name  = upper(var.name)
 }
