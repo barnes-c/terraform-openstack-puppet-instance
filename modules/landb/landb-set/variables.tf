@@ -42,13 +42,13 @@ variable "responsible_type" {
   default     = "EGROUP"
 }
 
-variable "type" {
-  description = "Type of the Landb set (e.g. INTERDOMAIN)"
-  type        = string
-}
-
 variable "set_present" {
   description = "Whether the set already exists. If false, the set is required to be already created in LanDB"
   type        = bool
   default     = true
+}
+
+variable "type" {
+  description = "Type of the Landb set (e.g. INTERDOMAIN)"
+  type        = string
 }
