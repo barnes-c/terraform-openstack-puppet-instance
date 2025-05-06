@@ -120,7 +120,6 @@ terraform apply
 | <a name="input_landb_responsible"></a> [landb\_responsible](#input\_landb\_responsible) | LanDB responsible of the instance | `string` | `""` | no |
 | <a name="input_no_reboot"></a> [no\_reboot](#input\_no\_reboot) | no reboot (default 0) | `number` | `0` | no |
 | <a name="input_ptable_name"></a> [ptable\_name](#input\_ptable\_name) | The name of the partition table | `string` | `"AFS Server"` | no |
-| <a name="input_puppet_init_path"></a> [puppet\_init\_path](#input\_puppet\_init\_path) | Path to the puppet init script | `string` | `"../puppetinit"` | no |
 | <a name="input_puppet_master_host"></a> [puppet\_master\_host](#input\_puppet\_master\_host) | Puppet master hostname | `string` | `"it-puppet-masters-public-a.cern.ch"` | no |
 | <a name="input_region"></a> [region](#input\_region) | Region in which the instance should spawn | `string` | `"cern"` | no |
 | <a name="input_responsible_egroup_email"></a> [responsible\_egroup\_email](#input\_responsible\_egroup\_email) | E-group email for the sets responsible | `string` | `"terraform-provider-landb@cern.ch"` | no |
