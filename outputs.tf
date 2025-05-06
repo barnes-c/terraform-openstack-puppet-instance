@@ -38,9 +38,12 @@ output "image_id" {
   value       = module.instance[0].image_id
 }
 
-output "set_attach_id" {
-  description = "The attachment's unique ID"
-  value       = module.landb_set_attachments[*].set_attach_id
+output "set_attach_id_map" {
+  description = "Attachment IDs by instance"
+  value = {
+    for key, m in module.landb_set_attachments :
+    key => m.set_attach_id
+  }
 }
 
 output "set_id" {
