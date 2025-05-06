@@ -160,12 +160,6 @@ variable "ptable_name" {
   default     = "AFS Server"
 }
 
-variable "puppet_init_path" {
-  description = "Path to the puppet init script"
-  type        = string
-  default     = "../puppetinit"
-}
-
 variable "puppet_master_host" {
   description = "Puppet master hostname"
   type        = string
