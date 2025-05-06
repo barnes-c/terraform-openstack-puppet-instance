@@ -131,7 +131,9 @@ terraform apply
 | <a name="input_roger_port"></a> [roger\_port](#input\_roger\_port) | The port for the Roger service. | `number` | `8201` | no |
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | List of security groups to be applied to the instance | `list(string)` | <pre>[<br/>  "ssh",<br/>  "icmp",<br/>  "default"<br/>]</pre> | no |
 | <a name="input_set_description"></a> [set\_description](#input\_set\_description) | Optional description for the set | `string` | `""` | no |
+| <a name="input_set_name"></a> [set\_name](#input\_set\_name) | Name of the LanDB set | `string` | `"tf-set"` | no |
 | <a name="input_set_network_domain"></a> [set\_network\_domain](#input\_set\_network\_domain) | Network domain for the shared set | `string` | `"GPN"` | no |
+| <a name="input_set_present"></a> [set\_present](#input\_set\_present) | Whether the set already exists. If false, the set is required to be already created in LanDB | `bool` | `true` | no |
 | <a name="input_set_project_url"></a> [set\_project\_url](#input\_set\_project\_url) | Optional URL for the set | `string` | `""` | no |
 | <a name="input_set_receive_notifications"></a> [set\_receive\_notifications](#input\_set\_receive\_notifications) | Whether the set should receive notifications | `bool` | `true` | no |
 | <a name="input_set_type"></a> [set\_type](#input\_set\_type) | Type of the LanDB set (e.g. INTERDOMAIN) | `string` | `"INTERDOMAIN"` | no |
