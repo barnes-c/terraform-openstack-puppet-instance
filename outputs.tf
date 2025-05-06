@@ -45,30 +45,30 @@ output "set_attach_id" {
 
 output "set_id" {
   description = "The name of the attachment"
-  value       = module.landb_set[0].set_id
+  value       = module.landb_set.set_id
 }
 
 output "set_name" {
   description = "The name of the created set (same as ID)"
-  value       = module.landb_set[0].set_name
+  value       = module.landb_set.set_name
 }
 
 output "set_network_domain" {
   description = "The network domain of the created set"
-  value       = module.landb_set[0].set_network_domain
+  value       = module.landb_set.set_network_domain
 }
 
 output "set_receive_notifications" {
   description = "Whether the set receives notifications"
-  value       = module.landb_set[0].set_receive_notifications
+  value       = module.landb_set.set_receive_notifications
 }
 
 output "set_responsible_egroup_email" {
   description = "The responsible e-group email of the created set"
-  value       = module.landb_set[0].set_responsible_egroup_email
+  value       = module.landb_set.set_responsible_egroup_email
 }
 
 output "set_responsible_egroup_name" {
   description = "The responsible e-group name of the created set"
-  value       = module.landb_set[0].set_responsible_egroup_name
+  value       = module.landb_set.set_responsible_egroup_name
 }

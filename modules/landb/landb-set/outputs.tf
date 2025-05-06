@@ -20,10 +20,10 @@ output "set_receive_notifications" {
 
 output "set_responsible_egroup_email" {
   description = "The responsible e-group email of the created set"
-  value       = landb_set.set.responsible[0].egroup.email
+  value       = landb_set.set.responsible.egroup.email
 }
 
 output "set_responsible_egroup_name" {
   description = "The responsible e-group name of the created set"
-  value       = landb_set.set.responsible[0].egroup.name
+  value       = landb_set.set.responsible.egroup.name
 }
