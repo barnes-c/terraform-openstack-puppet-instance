@@ -1,6 +1,6 @@
 module "example-instances1" {
   source  = "barnes-c/puppet-instance/openstack"
-  version = "1.2.0"
+  version = "1.2.4"
 
   foreman_environment = var.foreman_environment
   foreman_hostgroup   = "playground/chbarnes"
@@ -27,7 +27,7 @@ module "example-instances1" {
 
 module "example-instances2" {
   source  = "barnes-c/puppet-instance/openstack"
-  version = "1.2.0"
+  version = "1.2.4"
 
   foreman_environment = var.foreman_environment
   foreman_hostgroup   = "playground"

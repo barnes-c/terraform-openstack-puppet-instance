@@ -74,7 +74,7 @@ In your root Terraform configuration, create a module block pointing to this rep
 ```terraform
 module "terraform-openstack-instance" {
   source  = "barnes-c/puppet-instance/openstack"
-  version = "1.2.0"
+  version = "1.2.4"
 }
 ```
 

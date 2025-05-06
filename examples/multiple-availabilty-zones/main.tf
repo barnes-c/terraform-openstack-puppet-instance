@@ -16,7 +16,7 @@ locals {
 
 module "terraform-openstack-instance" {
   source  = "barnes-c/puppet-instance/openstack"
-  version = "1.2.0"
+  version = "1.2.4"
   count  = length(local.limited_availability_zones)
 
   availability_zone = local.limited_availability_zones[count.index]

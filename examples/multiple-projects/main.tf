@@ -1,6 +1,6 @@
 module "first-project" {
   source  = "barnes-c/puppet-instance/openstack"
-  version = "1.2.0"
+  version = "1.2.4"
 
   providers = {
     openstack = openstack.first_project
@@ -9,7 +9,7 @@ module "first-project" {
 
 module "second-project" {
   source  = "barnes-c/puppet-instance/openstack"
-  version = "1.2.0"
+  version = "1.2.4"
 
   providers = {
     openstack = openstack.second_project
