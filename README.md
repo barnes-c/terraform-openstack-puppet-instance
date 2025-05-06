@@ -72,12 +72,9 @@ This Terraform module is designed to provision a puppet managed OpenStack instan
 In your root Terraform configuration, create a module block pointing to this repository. For example:
 
 ```terraform
-module "create-openstack-instance" {
-  source = "git::https://gitlab.com/your-group/terraform-openstack-instance.git?ref=v1.0.0"
-
-  key_pair_name = "YOUR-KEY-NAME"
-  # Include additional variables
-  # flavor, certmgr settings, foreman configurations, etc.
+module "terraform-openstack-instance" {
+  source  = "barnes-c/puppet-instance/openstack"
+  version = "1.2.0"
 }
 ```
 
