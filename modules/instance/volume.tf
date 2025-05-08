@@ -1,6 +1,6 @@
 resource "openstack_blockstorage_volume_v3" "volume" {
   count             = var.volume_size > 0 ? var.volume_count : 0
-  name              = "${var.volume_name}-${count.index + 1}"
+  name              = "${var.instance_name}-volume-${count.index + 1}"
   size              = var.volume_size
   volume_type       = var.volume_type
   image_id          = var.image_ref
