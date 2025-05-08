@@ -139,29 +139,23 @@ variable "instance_waitdns" {
 variable "landb_mainuser" {
   description = "LanDB user of the instance"
   type        = string
-  default     = ""
+  default     = "TERRAFORM-PROVIDER-LANDB"
 }
 
 variable "landb_responsible" {
-  description = "LanDB responsible of the instance"
+  description = "User or E-group name. The person responsible for the machine/set"
   type        = string
-  default     = ""
+  default     = "TERRAFORM-PROVIDER-LANDB"
 }
 
-variable "landb_responsible_egroup_email" {
+variable "landb_responsible_email" {
   description = "E-group email for the sets responsible"
   type        = string
   default     = "terraform-provider-landb@cern.ch"
 }
 
-variable "landb_responsible_egroup_name" {
-  description = "E-group name for the sets responsible (Uppercase)"
-  type        = string
-  default     = "TERRAFORM-PROVIDER-LANDB"
-}
-
 variable "landb_responsible_type" {
-  description = "Contact type for the set (e.g. EGROUP)"
+  description = "Contact type of the user/responsible/manager for the machine/set (e.g. EGROUP)"
   type        = string
   default     = "EGROUP"
 }
@@ -268,6 +262,12 @@ variable "user_data" {
   default     = ""
 }
 
+variable "user_data_path" {
+  description = "If path is provided, the content of the file will be used as user_data. Otherwise, the inline var user_data will be used."
+  type        = string
+  default     = ""
+}
+
 variable "volume_availability_zone" {
   description = "Availability zone for the volume"
   type        = string
@@ -287,7 +287,7 @@ variable "volume_name" {
 }
 
 variable "volume_size" {
-  description = "Size of each volume. If 0, no volume is created."
+  description = "Size of each volume in GB. If 0, no volume is created."
   type        = number
   default     = 0
 }

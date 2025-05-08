@@ -11,8 +11,8 @@ resource "landb_set" "set" {
     type = var.responsible_type
 
     egroup = {
-      name  = var.responsible_egroup_name
-      email = var.responsible_egroup_email
+      name  = var.responsible
+      email = var.responsible_email
     }
   }
 }

@@ -9,13 +9,11 @@ resource "openstack_compute_instance_v2" "instance" {
     for sg in values(data.openstack_networking_secgroup_v2.secgroup) : sg.name
   ]
 
-  metadata = merge(
-    {
+  metadata = {
       cern-waitdns = var.instance_waitdns
+      landb-mainuser = var.landb_mainuser
+      landb-mainuser = var.landb_responsible
       tenant-id    = data.openstack_identity_auth_scope_v3.scope.project_id
       tenant-name  = data.openstack_identity_auth_scope_v3.scope.project_name
-    },
-    var.landb_mainuser != "" ? { "landb-mainuser" = var.landb_mainuser } : {},
-    var.landb_responsible != "" ? { "landb-responsible" = var.landb_responsible } : {}
-  )
+  }
 }

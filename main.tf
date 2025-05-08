@@ -36,6 +36,7 @@ module "instance" {
   roger_port               = var.roger_port
   security_groups          = var.security_groups
   user_data                = var.user_data
+  user_data_path           = var.user_data_path
   volume_availability_zone = var.volume_availability_zone
   volume_count             = var.volume_count
   volume_name              = var.volume_name
@@ -55,9 +56,9 @@ module "landb_set" {
   project_url           = var.set_project_url
   receive_notifications = var.set_receive_notifications
 
-  responsible_type         = var.landb_responsible_type
-  responsible_egroup_name  = var.landb_responsible_egroup_name
-  responsible_egroup_email = var.landb_responsible_egroup_email
+  responsible       = var.landb_responsible
+  responsible_email = var.landb_responsible_email
+  responsible_type  = var.landb_responsible_type
 }
 
 module "landb_set_attachments" {
@@ -69,7 +70,7 @@ module "landb_set_attachments" {
   }
 
   set_name    = module.landb_set.set_name
-  name        = "${each.value.instance_name}.cern.ch"
+  device_name = "${each.value.instance_name}.cern.ch"
   ipv4        = each.value.ipv4_address
   ipv6        = each.value.ipv6_address
   description = "Interface for ${each.value.instance_name}.cern.ch"
