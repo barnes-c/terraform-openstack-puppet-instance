@@ -1,4 +1,6 @@
 locals {
+  effective_user_data = var.user_data_path != "" ? file(var.user_data_path) : var.user_data
+
   puppetinit_content = templatefile("${path.module}/puppetinit.tpl", {
     _CASERVER_HOSTNAME     = var.certmgr_host
     _CASERVER_PORT         = var.certmgr_port
@@ -22,7 +24,7 @@ data "template_cloudinit_config" "config" {
 
   part {
     content_type = "text/cloud-config"
-    content      = var.user_data
+    content      = local.effective_user_data
   }
 }
 

@@ -139,13 +139,13 @@ variable "instance_waitdns" {
 variable "landb_mainuser" {
   description = "LanDB user of the instance"
   type        = string
-  default     = ""
+  default     = "TERRAFORM-PROVIDER-LANDB"
 }
 
 variable "landb_responsible" {
   description = "LanDB responsible of the instance"
   type        = string
-  default     = ""
+  default     = "TERRAFORM-PROVIDER-LANDB"
 }
 
 variable "no_reboot" {
@@ -204,6 +204,12 @@ variable "security_groups" {
 
 variable "user_data" {
   description = "Extra user data to be added to the instance, e.g. a cloud-config snippet."
+  type        = string
+  default     = ""
+}
+
+variable "user_data_path" {
+  description = "If path is provided, the content of the file will be used as user_data. Otherwise, the inline var user_data will be used."
   type        = string
   default     = ""
 }
