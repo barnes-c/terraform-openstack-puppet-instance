@@ -76,7 +76,7 @@ variable "foreman_organization_id" {
   default     = 2
 }
 
-variable "image_distro" {
+variable "image_os" {
   description = "The name of the OpenStack distro"
   type        = string
   default     = "RHEL"

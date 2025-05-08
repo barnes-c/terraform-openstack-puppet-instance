@@ -49,7 +49,7 @@ data "foreman_model" "model" {
 }
 
 data "foreman_operatingsystem" "os" {
-  title = format("%s %s.%s", var.image_distro, var.image_os_major_version, var.image_os_minor_version)
+  title = format("%s %s.%s", var.image_os, var.image_os_major_version, var.image_os_minor_version)
 }
 
 data "foreman_partitiontable" "ptable" {

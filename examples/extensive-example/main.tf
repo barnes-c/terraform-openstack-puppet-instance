@@ -10,7 +10,7 @@ module "example-instances1" {
   instance_name = "${var.instance_name_prefix}-${replace("playground/chbarnes", "/", "-")}-${count.index + 1}"
   instance_name_prefix = var.instance_name_prefix
 
-  image_distro           = var.image_distro
+  image_os           = var.image_os
   image_os_major_version = var.image_os_major_version
   image_os_minor_version = var.image_os_minor_version
 
@@ -37,7 +37,7 @@ module "example-instances2" {
   instance_name        = "${var.instance_name_prefix}-${replace(var.foreman_hostgroup, "/", "-")}-${count.index + 1}"
   instance_name_prefix = var.instance_name_prefix
 
-  image_distro           = var.image_distro
+  image_os           = var.image_os
   image_os_major_version = var.image_os_major_version
   image_os_minor_version = var.image_os_minor_version
 

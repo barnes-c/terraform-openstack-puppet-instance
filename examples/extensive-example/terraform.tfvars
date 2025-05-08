@@ -6,7 +6,7 @@ instance_flavor      = "m2.small"
 instance_name_prefix = "test"
 
 # Specify which OS should be used for the image
-image_distro           = "RHEL"
+image_os           = "RHEL"
 image_os_major_version = "9"
 image_os_minor_version = "5"
 

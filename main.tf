@@ -15,7 +15,7 @@ module "instance" {
   foreman_media_name       = var.foreman_media_name
   foreman_model_name       = var.foreman_model_name
   foreman_organization_id  = var.foreman_organization_id
-  image_distro             = var.image_distro
+  image_os             = var.image_os
   image_os_major_version   = var.image_os_major_version
   image_os_minor_version   = var.image_os_minor_version
   image_ref                = var.image_ref
