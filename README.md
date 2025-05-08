@@ -116,11 +116,10 @@ terraform apply
 | <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | The name of the OpenStack instance | `string` | `"tf-instance-1"` | no |
 | <a name="input_instance_name_prefix"></a> [instance\_name\_prefix](#input\_instance\_name\_prefix) | Prefix for the instance name | `string` | `""` | no |
 | <a name="input_instance_waitdns"></a> [instance\_waitdns](#input\_instance\_waitdns) | Wether the instance should wait for the dns to be propagated | `bool` | `true` | no |
-| <a name="input_landb_mainuser"></a> [landb\_mainuser](#input\_landb\_mainuser) | LanDB user of the instance | `string` | `""` | no |
-| <a name="input_landb_responsible"></a> [landb\_responsible](#input\_landb\_responsible) | LanDB responsible of the instance | `string` | `""` | no |
-| <a name="input_landb_responsible_egroup_email"></a> [landb\_responsible\_egroup\_email](#input\_landb\_responsible\_egroup\_email) | E-group email for the sets responsible | `string` | `"terraform-provider-landb@cern.ch"` | no |
-| <a name="input_landb_responsible_egroup_name"></a> [landb\_responsible\_egroup\_name](#input\_landb\_responsible\_egroup\_name) | E-group name for the sets responsible (Uppercase) | `string` | `"TERRAFORM-PROVIDER-LANDB"` | no |
-| <a name="input_landb_responsible_type"></a> [landb\_responsible\_type](#input\_landb\_responsible\_type) | Contact type for the set (e.g. EGROUP) | `string` | `"EGROUP"` | no |
+| <a name="input_landb_mainuser"></a> [landb\_mainuser](#input\_landb\_mainuser) | LanDB user of the instance | `string` | `"TERRAFORM-PROVIDER-LANDB"` | no |
+| <a name="input_landb_responsible"></a> [landb\_responsible](#input\_landb\_responsible) | User or E-group name. The person responsible for the machine/set | `string` | `"TERRAFORM-PROVIDER-LANDB"` | no |
+| <a name="input_landb_responsible_email"></a> [landb\_responsible\_email](#input\_landb\_responsible\_email) | E-group email for the sets responsible | `string` | `"terraform-provider-landb@cern.ch"` | no |
+| <a name="input_landb_responsible_type"></a> [landb\_responsible\_type](#input\_landb\_responsible\_type) | Contact type of the user/responsible/manager for the machine/set (e.g. EGROUP) | `string` | `"EGROUP"` | no |
 | <a name="input_no_reboot"></a> [no\_reboot](#input\_no\_reboot) | no reboot (default 0) | `number` | `0` | no |
 | <a name="input_ptable_name"></a> [ptable\_name](#input\_ptable\_name) | The name of the partition table | `string` | `"AFS Server"` | no |
 | <a name="input_puppet_master_host"></a> [puppet\_master\_host](#input\_puppet\_master\_host) | Puppet master hostname | `string` | `"it-puppet-masters-public-a.cern.ch"` | no |
@@ -138,10 +137,11 @@ terraform apply
 | <a name="input_set_receive_notifications"></a> [set\_receive\_notifications](#input\_set\_receive\_notifications) | Whether a new set should send notifications about its state | `bool` | `true` | no |
 | <a name="input_set_type"></a> [set\_type](#input\_set\_type) | Type of a new LanDB set (e.g. INTERDOMAIN) | `string` | `"INTERDOMAIN"` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | Extra user data to be added to the instance, e.g. a cloud-config snippet. | `string` | `""` | no |
+| <a name="input_user_data_path"></a> [user\_data\_path](#input\_user\_data\_path) | If path is provided, the content of the file will be used as user\_data. Otherwise, the inline var user\_data will be used. | `string` | `""` | no |
 | <a name="input_volume_availability_zone"></a> [volume\_availability\_zone](#input\_volume\_availability\_zone) | Availability zone for the volume | `string` | `""` | no |
 | <a name="input_volume_count"></a> [volume\_count](#input\_volume\_count) | Number of volumes to create per instance. | `number` | `1` | no |
 | <a name="input_volume_name"></a> [volume\_name](#input\_volume\_name) | The name of the volume | `string` | `"tf-volume"` | no |
-| <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | Size of each volume. If 0, no volume is created. | `number` | `0` | no |
+| <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | Size of each volume in GB. If 0, no volume is created. | `number` | `0` | no |
 | <a name="input_volume_type"></a> [volume\_type](#input\_volume\_type) | Type of the volume | `string` | `""` | no |
 
 ## Outputs
