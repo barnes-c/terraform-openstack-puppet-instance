@@ -106,7 +106,7 @@ terraform apply
 | <a name="input_foreman_media_name"></a> [foreman\_media\_name](#input\_foreman\_media\_name) | The name of the foreman medium | `string` | `"RedHatCERN"` | no |
 | <a name="input_foreman_model_name"></a> [foreman\_model\_name](#input\_foreman\_model\_name) | The name of the foreman model | `string` | `"OpenStack Compute"` | no |
 | <a name="input_foreman_organization_id"></a> [foreman\_organization\_id](#input\_foreman\_organization\_id) | The foreman organization ID | `number` | `2` | no |
-| <a name="input_image_distro"></a> [image\_distro](#input\_image\_distro) | The name of the OpenStack distro | `string` | `"RHEL"` | no |
+| <a name="input_image_os"></a> [image\_os](#input\_image\_os) | The name of the OpenStack OS image | `string` | `"RHEL"` | no |
 | <a name="input_image_os_major_version"></a> [image\_os\_major\_version](#input\_image\_os\_major\_version) | Major version of the OS | `string` | `"9"` | no |
 | <a name="input_image_os_minor_version"></a> [image\_os\_minor\_version](#input\_image\_os\_minor\_version) | Minor version of the OS | `string` | `"5"` | no |
 | <a name="input_image_ref"></a> [image\_ref](#input\_image\_ref) | Image to be turned into a volume (optional) | `string` | `""` | no |
