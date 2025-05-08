@@ -66,12 +66,12 @@ output "set_receive_notifications" {
   value       = module.landb_set.set_receive_notifications
 }
 
-output "set_responsible_egroup_email" {
-  description = "The responsible e-group email of the created set"
-  value       = module.landb_set.set_responsible_egroup_email
-}
-
-output "set_responsible_egroup_name" {
+output "set_responsible" {
   description = "The responsible e-group name of the created set"
   value       = module.landb_set.set_responsible_egroup_name
+}
+
+output "set_responsible_email" {
+  description = "The responsible e-group email of the created set"
+  value       = module.landb_set.set_responsible_egroup_email
 }
