@@ -18,7 +18,7 @@ terraform {
     }
     roger = {
       source  = "barnes-c/roger"
-      version = "1.2.3"
+      version = ">= 1.2.4"
     }
     template = {
       source  = "hashicorp/template"
