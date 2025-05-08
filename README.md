@@ -161,6 +161,6 @@ terraform apply
 | <a name="output_set_name"></a> [set\_name](#output\_set\_name) | The name of the created set (same as ID) |
 | <a name="output_set_network_domain"></a> [set\_network\_domain](#output\_set\_network\_domain) | The network domain of the set |
 | <a name="output_set_receive_notifications"></a> [set\_receive\_notifications](#output\_set\_receive\_notifications) | Whether the set receives notifications |
-| <a name="output_set_responsible_egroup_email"></a> [set\_responsible\_egroup\_email](#output\_set\_responsible\_egroup\_email) | The responsible e-group email of the created set |
-| <a name="output_set_responsible_egroup_name"></a> [set\_responsible\_egroup\_name](#output\_set\_responsible\_egroup\_name) | The responsible e-group name of the created set |
+| <a name="output_set_responsible"></a> [set\_responsible](#output\_set\_responsible) | The responsible e-group name of the created set |
+| <a name="output_set_responsible_email"></a> [set\_responsible\_email](#output\_set\_responsible\_email) | The responsible e-group email of the created set |
 <!-- END_TF_DOCS -->
